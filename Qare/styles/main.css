@@ -1,0 +1,816 @@
+.cf:before,
+.cf:after {
+  content: '';
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.km-flat {
+  font-size: .95em;
+}
+.km-group-container > li {
+    padding-top:-5px;
+    background:#EBEBEB;
+}
+.km-group-title > div {
+    
+    background:#EBEBEB;
+}
+.km-group-title .km-text span{
+    
+    background:#EBEBEB;
+    color: #999;
+    font-weight:normal;
+}
+.km-listinset,
+.km-listgroupinset {
+  margin: 1em 2em;
+}
+
+#qareApp .activities-view .km-listview,
+#qareApp .add-activity-view .km-listview,
+#qareApp .add-comment-view .km-listview {
+  margin: 0.5em;
+}
+
+.km-flat .km-rowinsert,
+.km-flat .km-state-active,
+.km-flat .km-scroller-pull,
+.km-flat .k-slider-selection,
+.km-flat .km-touch-scrollbar,
+.km-flat .km-pages .km-current-page,
+.km-flat .k-slider .k-draghandle,
+.km-flat .k-slider .k-draghandle:hover,
+.km-flat .km-tabstrip .km-state-active,
+.km-flat .km-scroller-refresh.km-load-more,
+.km-flat .km-popup .k-state-hover,
+.km-flat .km-popup .k-state-focused,
+.km-flat .km-popup .k-state-selected,
+.km-flat .km-actionsheet > li > a:active,
+.km-flat .km-actionsheet > li > a:hover,
+.km-flat li.km-state-active .km-listview-link,
+.km-flat li.km-state-active .km-listview-label,
+.km-flat .km-listview-label input[type=radio]:checked,
+.km-flat .km-listview-label input[type=checkbox]:checked {
+  /*background: #4d4d4d;*/
+  background-color: #ccc;
+  color:#4d4d4d;
+}
+.km-flat .km-tabstrip .km-button {
+  background-color: #F2F2F2;
+  color:#4d4d4d;
+  border-top: 1px #ccc solid;
+}
+/*.filter-button:after, .filter-button:before {
+    content:"\e078";
+}*/
+.km-organize:after, .km-organize:before {
+    content:"\e078";
+}
+
+.km-bookmarks:after, .km-bookmarks:before {
+  content: "\e07a";
+}
+.km-toprated:after, .km-favorites:after, .km-toprated:before, .km-favorites:before {
+  content: "\e20c";
+}
+.km-contacts:after, .km-contacts:before {
+  content: "\e219";
+}
+.km-flat .km-loader {
+  background-color: rgba(0, 0, 0, .75);
+}
+
+.km-flat .km-loader::before {
+  background: none;
+}
+
+#qareApp.km-flat,
+#qareApp.km-flat .km-navbar,
+#qareApp.km-flat .km-content,
+input[type='date'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='time'],
+input[type='week'] {
+  /*font-family: 'Roboto', sans-serif;*/
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#qareApp.km-flat,
+#qareApp.km-flat .km-navbar,
+#qareApp.km-flat .km-content {
+  border: 0 none;
+  color: #4d4d4d;
+  background-color: #fff;
+}
+
+#qareApp.km-flat .km-navbar {
+  background-color: #fff;
+}
+
+#qareApp.km-flat .km-content {
+  color: #4d4d4d;
+}
+
+#qareApp .hide-text {
+  text-indent: -999px;
+  overflow: hidden;
+}
+
+.disabled {
+  position: relative;
+  display: block;
+}
+
+.disabled:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -1px;
+  bottom: 0;
+  left: -1px;
+  z-index: 1;
+}
+
+/* Forms */
+
+::-webkit-input-placeholder {
+  color: #4d4d4d;
+}
+
+:-moz-placeholder {
+  color: #4d4d4d;
+}
+
+::-moz-placeholder {
+  color: #4d4d4d;
+}
+
+:-ms-input-placeholder {
+  color: #4d4d4d;
+}
+
+#qareApp.km-flat form .km-list > li,
+#qareApp .btn {
+  border-radius: 0;
+}
+
+#qareApp.km-flat form .km-list > li {
+  margin: 0 0 1em;
+  padding: .4em 0;
+  border-width: 0;
+  border-color: #ccc;
+  background-color: #fff;
+}
+
+#qareApp.km-flat .km-list input[type='text']:not(.k-input),
+#qareApp.km-flat .km-list input[type='password'],
+#qareApp.km-flat .km-list input[type='email'],
+#qareApp.km-flat .km-list input[type='date'],
+#qareApp.km-flat textarea,
+#qareApp.km-flat select {
+  position: static;
+  width: 99%;
+  height: 30px;
+  font-size: 1rem;
+  border: 1px #ccc solid;
+  border-radius: 2px;
+}
+
+#qareApp.km-flat.km-on-wp .km-list input[type='text']:not(.k-input),
+#qareApp.km-flat.km-on-wp .km-list input[type='password'],
+#qareApp.km-flat.km-on-wp .km-list input[type='email'],
+#qareApp.km-flat.km-on-wp .km-list input[type='date'],
+#qareApp.km-flat.km-on-wp textarea,
+#qareApp.km-flat.km-on-wp select {
+  padding: 0 .4em;
+}
+
+#qareApp.km-flat select {
+  padding: .4em .2em;
+}
+
+#qareApp.km-flat.km-on-wp select {
+  padding: 0 .2em;
+}
+
+/* Activities Filter */
+
+#qareApp .activities-filter{
+    
+    padding:10px;
+    margin:10px;
+    border:1px #ccc solid;
+}
+#qareApp .filter-wrapper {
+    /*font-size: .85em;*/
+    display: table;
+  	width: 100%;
+    padding:0;
+    margin:0;
+}
+#qareApp .filter-left {
+    
+    display: table-cell;
+    padding:2;
+    margin:0;
+}
+#qareApp .filter-left p{
+    
+    padding:2px;
+    margin:4px
+}
+#qareApp .filter-divide-line {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+}
+/* Buttons */
+
+#qareApp .btn {
+  position: relative;
+  margin: 0 -1px;
+  padding: .8em 0;
+  border: 0 none;
+  color: #fff;
+  font-size: 1rem;
+  background-color: #1976d2;
+}
+
+#qareApp .disabled .btn {
+  opacity: .35;
+}
+
+#qareApp .btn-login {
+  background-color: #e91e63;
+}
+
+#qareApp .signup-view .btn-signup,
+#qareApp .btn-delete {
+  display: block;
+  text-align: center;
+}
+
+#qareApp .btn-delete {
+  background-color: #e84c3d;
+}
+
+#qareApp .nav-button {
+  border: 0 none;
+  background-color: transparent;
+}
+
+#qareApp .nav-button-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+#qareApp .nav-button-back {
+  background-image: url(./images/icon-arrow.png);
+}
+
+#qareApp .nav-button-back-d {
+  background-image: url(./images/icon-arrow_dark.png);
+}
+
+#qareApp .nav-button-comment {
+  background-image: url(images/icon-comment.png);
+}
+
+#qareApp .nav-button-delete {
+  background-image: url(images/icon-delete.png);
+}
+#qareApp .nav-button-qare {
+  background-image: url(./images/qare_app_icon.png);
+}
+#qareApp .nav-button-header {
+  background-image: url(./images/logo_small.png);
+}
+
+#qareApp .nav-button.km-state-active {
+	color: #fff;
+    background:#ccc;
+}
+
+#qareApp .activity-view .user-status-wrp .km-navbar .nav-button,
+#qareApp .activity-view .user-status-wrp .km-navbar .nav-button.km-state-active {
+    color: #fff;
+    background:#ccc;
+}
+
+/* App Header */
+
+#qareApp.km-flat.km-on-ios.km-black-translucent-status-bar .km-header {
+  min-height: 1px;
+  background-color: #32A1A9;
+}
+
+#qareApp.km-flat.km-on-ios.km-black-translucent-status-bar .km-header .km-navbar {
+  margin-top: 0;
+  padding-top: 15px;
+  background-color: #32A1A9;
+  color:#fff;
+}
+
+/*#qareApp.km-flat .km-header .km-navbar {
+  min-height: 3.15em;
+}*/
+
+#qareApp.km-flat .km-header .km-navbar {
+  /*border-bottom: 1px solid #c9c9c9;*/
+    border:none;
+}
+
+#qareApp.km-flat .km-header .km-view-title {
+  font-size: 1.3em;
+}
+
+/* Welcome screen */
+
+#qareApp .app-name {
+  margin-top: 1.5em;
+}
+
+#qareApp .app-name {
+  width: 221px;
+  height: 297px;
+  margin: 1em auto;
+  text-indent: -9999px;
+  /*background: transparent url(images/logo-friends.png) no-repeat 0 0;*/
+  background: transparent url(images/logo-qare.png) no-repeat 0 0;    
+  overflow: hidden;
+}
+
+#qareApp .app-name small {
+  display: block;
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+
+#qareApp .welcome-scrn .group-wrp {
+  margin: 0 2em;
+  padding: 0;
+  text-align: center;
+  list-style-type: none;
+}
+
+#qareApp .welcome-scrn .group-wrp li {
+  margin: 1.5em 0 0;
+}
+
+#qareApp .welcome-scrn .group-wrp li:first-child {
+  margin-top: 0;
+}
+
+#qareApp .welcome-scrn .group-wrp .btn {
+  display: block;
+}
+
+#qareApp .welcome-scrn .group-wrp .oauth {
+  margin-right: -1%;
+  margin-left: -1%;
+}
+
+#qareApp .welcome-scrn .group-wrp .oauth .oauth-item {
+  float: left;
+  width: 98%;
+  margin: 0 1%;
+}
+
+#qareApp .welcome-scrn .group-wrp .oauth .btn {
+  height: 45px;
+  padding-top: 1.1em;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+#qareApp .welcome-scrn .group-wrp .oauth .btn-facebook {
+  /*background-image: url(images/logo-facebook.png);*/
+}
+
+#qareApp .welcome-scrn .group-wrp .oauth .btn-google {
+  background-image: url(images/logo-google.png);
+}
+
+#qareApp .welcome-scrn .group-wrp .oauth .btn-windows {
+  background-image: url(images/logo-windows.png);
+}
+
+#qareApp .welcome-scrn .group-wrp .oauth .btn-adfs {
+  background-image: url(images/logo-adfs.png);
+}
+
+#qareApp .welcome-scrn .group-wrp .oauth .btn span,
+#qareApp .welcome-scrn .group-wrp .btn-signup span {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+#qareApp .welcome-scrn .group-wrp .btn-signup {
+  border: 0 none;
+  background-color: transparent;
+}
+
+/* No API Key screen */
+
+#qareApp .noapikey-scrn h3 {
+  line-height: 1.25;
+}
+
+#qareApp .noapikey-scrn p {
+  line-height: 1.5;
+}
+
+#qareApp .noapikey-scrn p strong,
+#qareApp .noapikey-scrn p span {
+  color: #000;
+}
+
+#qareApp .noapikey-scrn p span {
+  font-weight: 600;
+}
+
+/* Signup */
+
+#qareApp.km-flat textarea {
+  float: none;
+  height: auto;
+  margin: 0;
+  resize: none;
+}
+
+#qareApp .signup-view .signup-btn-wrp {
+  margin: 0 2em;
+}
+
+#qareApp .signup-view .select-wrp select {
+  color: #4d4d4d;
+  
+}
+
+#qareApp .signup-view .select-wrp option:first-child {
+  color: #b6c5c6;
+}
+
+/* Activities */
+
+#qareApp .km-list>li, .km-widget .km-listview-link, .km-widget .km-listview-label {
+    padding: 5px!Important;
+    border-right:0px;
+    border-top:0px;
+}
+
+.km-widget .km-listview-link{
+     padding: 5px!Important;
+     border-right:0px;
+     border-top:0px;
+     margin: -0.5em -0.35em !important;
+}
+
+#qareApp .activity-view .user-status-wrp .km-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  padding-top: .5em;
+  background-color: transparent;
+}
+
+#qareApp .activity-view .user-status-wrp .content {
+  padding: 1em;
+}
+
+#qareApp .activity-view .activity-content {
+  padding: 0;
+}
+
+#qareApp .activity-view .activity-content > span {
+  padding: 10px;
+}
+#qareApp .activity-view .user-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 0 1em .5em;
+}
+
+#qareApp .activity-view .user-info .person-name,
+#qareApp .activity-view .user-info .time-span {
+  color: #fff;
+}
+
+#qareApp .activity-view .user-info .person-name {
+  display: inline-block;
+  float: left;
+  margin: 1em;
+}
+
+#qareApp .activity-view .user-info .time-span {
+  display: inline-block;
+  float: right;
+  min-width: 80px;
+  margin: 1.65em 0 0 0;
+  font-size: .85em;
+  text-align: right;
+  text-transform: uppercase;
+}
+#qareApp .main-span {
+  display: inline-block;
+  font-size: .85em;
+}
+#qareApp .activities-view .km-list > li,
+#qareApp .activity-view .km-list > li {
+  padding: 15px;
+  margin-right: 6px;
+  color: #4d4d4d;
+  background-color: #fff;  
+  /* box-shadow */
+  -webkit-box-shadow: 5px 5px 5px -2px rgba(0,0,0,0.5);
+  -moz-box-shadow: 5px 5px 5px -2px rgba(0,0,0,0.5);
+  box-shadow: 5px 5px 5px -2px rgba(0,0,0,0.5);
+  overflow: visible;
+}
+
+#qareApp .activities-view .km-list > li {
+  position: relative;
+  margin-top:8px;
+  /*border-top:1px #eaeced solid;
+  border-bottom: 3px #32A1A9 solid;*/
+}
+
+#qareApp .activities-view .km-list > li::before,
+#qareApp .activity-view .km-list > li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 4.5em;
+  display: block;
+  height: 1px;
+  /*border: 1px solid #eaeced;*/
+}
+
+#qareApp .activities-view .km-list > li:first-child::before {
+  display: none;
+}
+
+#qareApp .activity-view .km-list > li::before {
+  left: 5em;
+}
+
+#qareApp .activity-view .comments-wrp {
+  margin-top: 1em;
+}
+
+#qareApp .activities-view .km-list > li:first-child {
+  padding-top: 15px;
+  border-radius: 0;
+}
+#qareApp .activities-view .km-list > li:last-child {
+  margin-bottom: 15px;
+  border-radius: 0;    
+}
+
+#qareApp .user-avatar {
+  float: left;
+  width: 70px;
+  padding-left:7px;
+  padding-right:5px;
+  padding-top:7px;
+}
+
+#qareApp .nav-logo {
+  float: left; 
+  padding-left:0px;
+  padding-right:0px;
+  padding-top:0px;
+}
+#qareApp .nav-logo img {
+  display: block;
+  margin: 0 auto;
+  width: 40px;
+}
+
+#qareApp .user-avatar img {
+  margin-left:auto;
+  margin-right:auto;    
+  width: 70px;
+  height: 70px;
+  border-radius: 45px;
+  /*border: 1px #ccc solid;*/
+}
+
+#qareApp .activity-content,
+#qareApp .comment-content {
+  position: relative;
+  padding-left: 7em;
+  font-size: .85rem;
+}
+
+#qareApp .activity-content .picture {
+  margin: 0 0 1em;
+}
+ 
+#qareApp .myprofile-picture {
+    width:100px;
+    height:100px;
+    border-radius:50%;
+}
+
+#qareApp .person-name,
+#qareApp .activity-content .time-span {
+  font-weight: 600;
+}
+
+#qareApp .person-name {
+  display: block;
+  margin: 0 0 .5em;
+  color: #e91e63;
+  font-size: 1.1rem;
+}
+
+#qareApp .activity-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#qareApp .activity-title{
+  font-weight: 500;
+}
+
+#qareApp .activity-title {
+  display: block;
+  margin: 0 0 0;
+  color: #000;
+  font-size: 0.8rem;
+}
+
+#qareApp .activity-title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#qareApp .activity-content .time-span {
+  display: block;
+  color: #a6a6a6;
+  font-size: .7rem;
+  text-transform: uppercase;
+}
+
+#qareApp .activity-content .comment-content .time-span {
+  top: 12px;
+  font-size: .6rem;
+}
+
+#qareApp .user-share-txt {
+  display: block;
+  margin-bottom: 1em;
+  color: #4d4d4d;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+#qareApp .activities-view .person-name,
+#qareApp .activity-view .person-name,
+#qareApp .add-activity-view .person-name,
+#qareApp .add-comment-view .person-name {
+  margin: .85em 0 1em;
+}
+
+#qareApp .add-activity-view .person-name,
+#qareApp .add-comment-view .person-name {
+  padding-left: .75em;
+}
+
+#qareApp .activity-view .picture-wrp {
+  position: relative;
+  height: 258px;
+  margin: 0 auto;
+  text-align: center;
+  background: transparent url(images/qare-logo_360.png) no-repeat 50% 50%;
+  background-size: 100% 258px;
+  overflow: hidden;
+}
+
+#qareApp .activity-view .picture-wrp::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 258px;
+  background: transparent url(images/qare-logo_360.png) repeat-x 0 0;
+}
+
+#qareApp .activity-view .picture {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  min-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#qareApp .add-activity-view .km-leftitem,
+#qareApp .add-comment-view .km-leftitem {
+  left: 1em;
+}
+
+#qareApp .add-activity-view .km-rightitem,
+#qareApp .add-comment-view .km-rightitem,
+#qareApp .activity-view .km-rightitem {
+  right: 0.1em;
+}
+
+#qareApp.km-black-translucent-status-bar .km-navbar .km-leftitem,
+#qareApp.km-black-translucent-status-bar .km-navbar .km-rightitem {
+  font-size: 1.4em;
+  text-transform: uppercase;
+}
+
+#qareApp.km-black-translucent-status-bar .km-navbar .km-leftitem .fa,
+#qareApp.km-black-translucent-status-bar .km-navbar .km-rightitem .fa {
+  font-size: 1.8em;
+}
+
+#qareApp .k-invalid-msg {
+  display: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  color: #e84c3d;
+}
+
+#qareApp.km-flat.km-on-wp .activities-view,
+#qareApp.km-flat.km-on-wp .activity-view,
+#qareApp.km-flat.km-on-wp .add-activity-view,
+#qareApp.km-flat.km-on-wp .add-comment-view {
+    margin-top: 30px;
+}
+
+/* Retina Images */
+
+@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  #qareApp .app-name {
+    /*background-image: url(images/logo-friends@2x.png);
+    background-size: 127px 119px;*/
+    background-image: url(images/logo-qare.png);
+    background-size: 221px 297px;      
+  }
+
+  #qareApp .nav-button,
+  #qareApp .welcome-scrn .group-wrp .oauth .btn {
+    background-size: 40px 40px;
+  }
+
+  #qareApp .nav-button-back {
+    background-image: url(images/icon-arrow@2x.png);
+  }
+
+  #qareApp .nav-button-back-d {
+    background-image: url(images/icon-arrow_dark@2x.png);
+  }
+
+  #qareApp .nav-button-comment {
+    background-image: url(images/icon-comment@2x.png);
+  }
+
+  #qareApp .nav-button-delete {
+    background-image: url(images/icon-delete@2x.png);
+  }
+
+  #qareApp .welcome-scrn .group-wrp .oauth .btn-facebook {
+    /*background-image: url(images/logo-facebook@2x.png);*/
+  }
+
+  #qareApp .welcome-scrn .group-wrp .oauth .btn-google {
+    background-image: url(images/logo-google@2x.png);
+  } 
+
+  #qareApp .welcome-scrn .group-wrp .oauth .btn-windows {
+    background-image: url(images/logo-windows@2x.png);
+  }
+
+  #qareApp .welcome-scrn .group-wrp .oauth .btn-adfs {
+    background-image: url(images/logo-adfs@2x.png);
+  }
+    
+     
+}

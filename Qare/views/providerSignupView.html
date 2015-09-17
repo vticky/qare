@@ -1,0 +1,94 @@
+<div data-role="view" id="signup" data-layout="default" class="signup-view" data-model="app.Signup" data-init="app.Signup.init" data-show="app.Signup.show" data-hide="app.Signup.hide">
+    <div data-role="header">
+        <div data-role="navbar">
+             <div class="nav-logo"><img src="styles/images/logo_small.png" /></div>
+             <div class="qare-span-filterdialog">
+            	<span>Aanbieder aanmelden</span>
+            </div>
+            <span data-role="touch">
+            	<a class="nav-button" data-align="right" data-role="backbutton">X</a>
+            </span>
+        </div>
+    </div>
+    <form id="Qare-signUp">
+        <ul id="signup-form" data-role="listview" data-style="inset">
+            <!--<li>
+            	<img class="myprofile-picture" width="50%">
+            </li>-->        
+            <li>
+                Voornaam*: <input id="signupFirstName" type="text"  data-bind="value: FirstName" required>
+            </li>
+            <li>
+                Achternaam*: <input id="signupLastName" type="text"  data-bind="value: LastName" required>
+            </li>
+            <li>
+                Gebruikersnaam*: <input id="signupUsername" type="text" data-bind="value: Username" required>
+            </li>
+            <li>
+                Wachtwoord*: <input id="signupPassword" type="password" data-bind="value: Password" required>
+            </li>
+            <li>
+                E-mail*: <input id="signupEmail" type="email" data-bind="value: Email" required>
+            </li>
+            <li>
+                Adres*: <input id="signupAddress" type="text" data-bind="value: Address" required>
+            </li>
+            <li>
+                Plaats*: <input id="signupCity" type="text" data-bind="value: City" required>
+            </li>
+            <li>
+                Postcode*: <input id="signupPostalCode" type="text" data-bind="value: PostalCode" required>
+            </li>
+            <li>
+                Telefoonnummer*: <input id="signupPhone" type="text" data-bind="value: Phone" required>
+            </li>
+            <li>
+                Leeftijd*: <input id="signupAge" type="text" data-bind="value: Age" required>
+            </li>
+            <li>
+                Geboortedatum*: <input type="date" id="signupBirthDatePicker" data-bind="value: BirthDate" required> 
+            </li>
+            <li>
+                Geslacht*:
+                <select id="signupGenderPicker"  data-bind="value: Gender" onchange="app.Signup.onSelectChange(this)" required>
+                    <option value="0" selected>Maak een keuze</option>
+                    <option value="Man">Man</option>
+                    <option value="Vrouw">Vrouw</option>
+                </select>
+            </li>
+            <li>
+                Leeftijdsvoorkeur vrijwilliger*:
+                <select id="signupPrefAge" data-bind="value: PrefAge" onchange="app.Signup.onSelectChange(this)" required>
+                    <option value="0" selected>Maak een keuze</option>
+                    <option value="18-35">18-35</option>
+                    <option value="36-50">36-50</option>
+                    <option value="51-100">51-100</option>
+                </select>                
+            </li>
+            <li>
+                Geslachtsvoorkeur vrijwilliger*:
+                <select id="signupPrefGender"data-bind="value: PrefGender" onchange="app.Signup.onSelectChange(this)" required>
+                    <option value="0" selected>Maak een keuze</option>
+                    <option value="Man">Man</option>
+                    <option value="Vrouw">Vrouw</option>
+                </select>
+            </li>
+            <li>
+                Vertel eens iets meer over uzelf?*: <textarea id="signupAboutMe" rows="8" cols="50" data-bind="value: Description"required></textarea>
+            </li>      
+        </ul>
+        <div>
+            <p>
+                <span data-role="touch">
+                    <a class="qare-btn" data-role="button" data-bind="click: signup">Registreer</a>
+                </span>
+            </p>
+            <p>
+                <span data-role="touch">
+                    <a class="qare-btn" data-role="backbutton" data-bind="">Annuleer</a>
+                </span>
+            </p>
+            <input type="text" id="signupUserType" value="Aanbieder" style="color:#fff; border:0px" readonly>
+        </div> 
+    </form>
+</div>

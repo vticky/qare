@@ -1,0 +1,25 @@
+<div data-role="view" id="share" data-layout="default" data-transition="overlay:down" class="add-review-view"
+    data-init="app.AddReview.init" data-show="app.AddReview.show" data-model="app.AddReview">
+    <div data-role="header">
+        <div data-role="navbar">
+            Recensie toevoegen
+            <a class="nav-button" data-align="left" data-role="backbutton">Cancel</a>
+            <a class="nav-button" data-align="right" data-role="button" data-bind="click: saveReview">Done</a>
+        </div>
+    </div>
+    <div id="enterReview" class="share-form-wrp" data-role="listview" data-style="inset">
+        <div class="user-share">
+            <!--<input id="newReviewName" type="text" placeholder="Naam">-->
+            <textarea id="newReviewDescription" placeholder="Omschrijving"></textarea>
+            <div class="acidjs-rating-stars">
+                <form>
+                    <input type="radio" name="group-1" id="group-1-0" value="5" /><label for="group-1-0"></label><!--
+                    --><input type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label><!--
+                    --><input type="radio" name="group-1" id="group-1-2" value="3" /><label for="group-1-2"></label><!--
+                    --><input type="radio" name="group-1" id="group-1-3" value="2" /><label for="group-1-3"></label><!--
+                    --><input type="radio" name="group-1" id="group-1-4"  value="1" /><label for="group-1-4"></label>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

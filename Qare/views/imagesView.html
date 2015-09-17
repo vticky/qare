@@ -1,0 +1,24 @@
+<div data-role="view" id="view-all-activities" data-layout="default" class="activities-view" data-model="app.Fimages">
+    <div data-role="header">
+        <div data-role="navbar">
+            Afbeeldingen
+            <a class="nav-button" data-align="right" data-role="button" data-icon="add" href="views/addImage.html"></a>
+        </div>
+    </div>
+
+        <ul id="images-listview" data-style="inset" data-role="listview" data-template="fimageTemplate"
+            data-bind="source: fimages"></ul>
+        <p id="no-images-span" hidden="hidden" class="no-images-msg">
+            <b>You don't have any images uploaded yet.</b><br /><br />Tap on the plus sign to add one.
+        </p>
+</div>
+
+<!-- Activities ListView Template -->
+<script type="text/x-kendo-template" id="fimageTemplate">
+    <div data-role="touch">
+        <div class="user-share">
+        	<img data-align="left" id="Picture" data-bind="attr:{src: PictureUrl}" width="75" />
+            <a class="img-title">${Title}</a>
+        </div>
+    </div>
+</script>

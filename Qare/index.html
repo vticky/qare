@@ -1,16 +1,132 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-    <meta charset="utf-8" />
-    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="bower_components/everlive/min/everlive.all.min.js"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+ 
+        <script src="scripts/app/identity-provider.js"></script>
+        <script src="scripts/app/settings.js"></script>
+        <script src="scripts/app/app.js"></script>
+        <script src="scripts/app/analytics-monitor.js"></script>
+        <script src="scripts/app/maps.js"></script>
+        <script src="scripts/app/users.js"></script>
+        <script src="scripts/app/my-profile.js"></script>
+        <script src="scripts/app/providerMyProfile.js"></script>
+        <script src="scripts/app/edit-my-profile.js"></script>
+        <script src="scripts/app/login.js"></script>
+        <script src="scripts/app/signup.js"></script>       
+        
+        <script src="scripts/app/activities.js"></script>
+        <script src="scripts/app/activity.js"></script>
+        <script src="scripts/app/favorites.js"></script>
+        <script src="scripts/app/comments.js"></script>
+        <script src="scripts/app/organisations.js"></script>
+        <script src="scripts/app/profiles.js"></script> 
+        <script src="scripts/app/reviews.js"></script>
+        <script src="scripts/app/images.js"></script>
+        
+        <script src="scripts/app/add-activity.js"></script>
+        <script src="scripts/app/add-comment.js"></script>
+        <script src="scripts/app/add-organization.js"></script>
+        <script src="scripts/app/add-profile.js"></script>
+        <script src="scripts/app/add-review.js"></script>
 
-    <script src="cordova.js"></script>
-    <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.mobile.min.js"></script>
-    
-</head>
-<body>
-    
-</body>
+        <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
+        <link href="styles/main.css" rel="stylesheet">
+        <link href="styles/forms.css" rel="stylesheet">
+        <link href="styles/lists.css" rel="stylesheet">
+        <link href="styles/filters.css" rel="stylesheet">        
+
+        
+        <script src="scripts/app/profilePerson.js"></script>
+        <script src="scripts/app/cancelByVolunteer.js"></script>
+        <script src="scripts/app/cancelByProvider.js"></script>
+        
+    </head>
+    <body id="qareApp">
+        <div data-role="layout" data-id="default">
+            <!--View content will render here-->
+        </div>
+        <!--WELCOME VIEW -->
+        <div data-role="view" id="welcome" data-layout="default" class="welcome-scrn form-view" data-model="app.Login" data-init="app.Login.init" data-show="app.Login.show">
+            <div data-role="header"></div>
+            <a data-role="button" href="views/providerSignupView.html" class="qare-span-provider-login">Aanbieder aanmelden ></a>
+            <h2 class="app-name">QARE <small>We Can, We Qare</small></h2>
+            <div data-role="modalview" id="login-modal" style="width: 95%;">
+                <!--<div data-role="header">-->
+                    <!--<div data-role="navbar">-->
+                        <!--<div class="qare-span-login">-->
+                            <!--<span data-role="touch" data-bind="events: { tap: loginDialog }">
+                    			<a data-role="button" class="qare-close-login">X</a>
+                    		</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <form id="login-form">
+                    <ul data-role="listview" data-style="inset">
+                        <br/><br/>
+                        <li class="username"><input type="text" id="loginUsername" placeholder="gebruikersnaam" autocapitalize="off" required validationMessage="Gebruikersnaam is verplicht!"></li>
+                        <li class="password"><input type="password" id="loginPassword" placeholder="wachtwoord" required validationMessage="Wachtwoord is verplicht!"></li>
+                    </ul>              
+                </form>
+                <div class="activity-wrapper">
+                    <div class="activity-btn-left">
+                        <p>
+                            <span data-role="touch" data-bind="events: { tap: loginDialog }">
+                                <a data-role="button" class="qare-btn-login">Annuleer</a>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="activity-btn-right">
+                        <p>
+                            <span data-role="touch" data-bind="events: { tap: login }">
+                                <a data-role="button" class="qare-btn-login">Ga verder</a>
+                            </span>
+                        </p>              
+                    </div>
+                </div>
+            </div>   
+            <ol class="group-wrp">
+                <li>
+                    <span id="login">
+                        <a data-role="button" data-rel="modalview" href="#login-modal" class="qare-btn-login">Inloggen</a>
+                    </span>
+                </li>
+                <li>
+                    <span id="login">
+                        <a data-role="button" href="views/signupView.html" class="qare-btn-login">Aanmelden</a>
+                    </span>
+                </li>
+                <li>
+                   <span data-role="touch" data-bind="events: { tap: loginWithFacebook }">
+                    	<a data-role="button" class="qare-btn-facebook">Facebook</a>
+                    </span>
+                </li>
+                 <a data-role="button" href="views/introductionView.html" class="qare-span-provider-login">Algemene voorwarden ></a>
+                <!--<li class="oauth cf">
+                    <span id="loginWithFacebook" class="oauth-item" data-role="touch" data-bind="events: { tap: loginWithFacebook }">
+                        <a data-role="button" class="btn btn-facebook hide-text">Facebook</a>
+                    </span>
+                    <span id="loginWithGoogle" class="oauth-item" data-role="touch" data-bind="events: { tap: loginWithGoogle }">
+                        <a data-role="button" class="btn btn-google hide-text">Google</a>
+                    </span>
+                    <span id="loginWithLiveID" class="oauth-item" data-role="touch" data-bind="events: { tap: loginWithLiveID }">
+                        <a data-role="button" class="btn btn-windows hide-text">LiveID</a>
+                    </span>
+                    <span id="loginWithADSF" class="oauth-item" data-role="touch" data-bind="events: { tap: loginWithADSF }">
+                        <a data-role="button" class="btn btn-adfs hide-text">ADFS</a>
+                    </span>
+                </li>-->
+                <!--<li class="signup">
+                    <a data-role="button" href="views/signupView.html" class="btn">Aanmelden</a>
+                </li>-->
+            </ol>
+        </div>
+    </body>
 </html>

@@ -1,0 +1,16 @@
+<div data-role="view" id="share" data-layout="default" data-transition="overlay:down" class="add-organization-view"
+    data-init="app.AddOrganization.init" data-show="app.AddOrganization.show" data-model="app.AddOrganization">
+    <div data-role="header">
+        <div data-role="navbar">
+            Organisatie toevoegen
+            <a class="nav-button" data-align="left" data-role="backbutton">Cancel</a>
+            <a class="nav-button" data-align="right" data-role="button" data-bind="click: saveOrganization">Done</a>
+        </div>
+    </div>
+    <div id="enterOrganization" class="share-form-wrp" data-role="listview" data-style="inset">
+        <div class="user-share">
+            <textarea id="newOrganizationName" placeholder="Naam"></textarea>
+            <textarea id="newOrganizationDescription" placeholder="Omschrijving"></textarea>
+        </div>
+    </div>
+</div>

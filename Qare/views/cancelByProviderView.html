@@ -1,0 +1,27 @@
+<div data-role="view" id="share" data-layout="default" data-transition="overlay:down" --class="add-activity-view"
+    data-init="app.CancelByProvider.init" data-show="app.CancelByProvider.show" data-model="app.CancelByProvider">
+    <div data-role="header">
+        <div data-role="navbar">
+           <div class="nav-logo"><img src="styles/images/logo_small.png" /></div>
+            
+            <div class="qare-span-filterdialog">
+            	<span>Weigeren</span>
+            </div>
+            <span data-role="touch">
+            	<a class="nav-button" data-align="right" data-role="backbutton">X</a>
+            </span>
+        </div>
+    </div>
+    <!-- check input types http://www.w3schools.com/html/html_form_input_types.asp -->
+    <div id="addActivity" class="add-activity-form-view">
+        <form id="Qare-signUp">
+            <label class="add-activity-form-label">Jouw reden (optioneel)</label>
+            <textarea id="newDescription" placeholder="omschrijving" ></textarea>
+            <p>
+                <span data-role="touch">
+                	<a class="qare-btn" data-role="button" data-bind="events: { click: cancelActivity}">Boeking weigeren</a>
+                </span>
+            </p>
+        </form>
+    </div>
+</div>

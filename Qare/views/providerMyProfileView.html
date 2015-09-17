@@ -1,0 +1,85 @@
+<div data-role="view" data-title="Mijn Profiel" data-layout="default" class="activities-view" data-model="app.providerMyProfileView" 
+     data-show="app.providerMyProfileView.onShow" data-after-show="app.providerMyProfileView.dataLoaded">
+    <header data-role="header">
+        <div data-role="navbar">
+            
+            <div class="qare-span-filterdialog">
+                <span> Profiel</span>
+            </div>
+           
+            <a class="nav-button nav-button-icon nav-button-header" data-align="left" data-role="button" onclick="window.location.replace('#views/myActivitiesView.html');"></a>
+            
+            <a class="nav-button" data-align="right" data-role="button" data-icon="compose" href="#views/editMyProfileView.html"></a>
+        </div>
+    </header>
+	<!-- My Profile Picture -->
+    <div class="filter-wrapper">
+        <div class="filter-left">
+            <div class="picture-wrp">
+                <img id="myProfilePicture" class="picture" width="100%">
+			</div>
+        </div>
+    </div>
+    <!-- My Profile Details -->
+    <div id="activity-main-container" class="activity-main-container">
+        <div class="filter-wrapper">
+            <div class="filter-left">
+                <h2 id="myProfileName" data-bind="value: fields.name"></h2>
+            </div>
+        </div>
+        <hr class="activity-divide-line"/>
+        <div class="activity-wrapper">
+            <div class="activity-left">
+                <label>Plaats:</label> <b><span id="myProfileCity" class="qare-text"></span></b>
+            </div>
+            <div class="activity-right">
+                <label>Leeftijd:</label> <b><span id="myProfileAge" class="qare-text"></span></b>
+            </div>            
+        </div>
+        <hr class="activity-divide-line"/>
+        <div class="activity-wrapper">
+            <div class="activity-left">
+                <label>Lid sinds:</label> <b><span id="myProfileCreated" class="qare-text"></span></b>
+            </div>
+            <div class="activity-right">
+                <label>Boekingen:</label> <b><span></span></b>
+            </div>            
+        </div>
+        <hr class="activity-divide-line"/>
+        <div class="activity-wrapper">
+            <div class="activity-left">
+                <label>Telefoon:</label> <b><span id="myProfilePhone" class="qare-text"></span></b>
+            </div>
+            <div class="activity-right">
+                <label>Geslacht:</label> <b><span id="myProfileGender" class="qare-text"></span></b>
+            </div>            
+        </div>
+        <hr class="activity-divide-line"/>
+        <div class="activity-wrapper">
+            <div class="activity-left">
+                <label>E-mail:</label> <b><span id="myProfileEmail" class="qare-text"></span></b>
+            </div>
+        </div>
+        <hr class="activity-divide-line"/>
+        <div class="activity-wrapper">
+            <div class="activity-left">
+                <label><b>Omschrijving</b></label><br/>
+                <span id="myProfileDescription"></span>
+            </div>
+        </div>
+        <p>
+           <span data-role="touch">
+                <a class="qare-btn" class="button button-block button-submit" data-role="button" onclick="window.location.replace('index.html');" id="logout">Uitloggen</a>
+            </span>
+        </p>
+    </div>
+    
+    <footer data-role="footer">
+        <div data-role="tabstrip" id="navigation-container">
+            
+			<a data-role="button" onclick="window.location.replace('#views/myActivitiesView.html');" id="provider-activities" data-icon="organize">Aanbod</a>
+            <a data-role="button" onclick="window.location.replace('#views/myBookingsView.html');" id="provider-bookings" data-icon="bookmarks">Boekingen</a>
+            <a style="color: #32A1A9" data-role="button"  id="provider-myprofile" data-icon="contacts">Profiel</a>
+        </div>
+    </footer>  
+</div>

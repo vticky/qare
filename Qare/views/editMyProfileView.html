@@ -1,0 +1,66 @@
+<div data-role="view" data-title="Profiel aanpassen" data-layout="main-nonav" data-model="app.editMyProfileView" data-show="app.editMyProfileView.onShow">
+    <header data-role="header">
+        <div data-role="navbar">Profiel aanpassen
+            <a class="nav-button nav-button-icon nav-button-back hide-text" data-align="left" data-bind="events: { click: editMyProfileViewModel.home }">Back</a>
+            <!--<a class="nav-button" data-align="right" data-role="button" data-bind="events: { click: editMyProfileViewModel.edit }">E</a>-->
+        </div>
+    </header>
+    
+    
+    <!--
+<li data-bind="invisible: picSelected"><a data-bind="click: onAddPic">Browse</a></li>
+<li id="picName" data-bind="visible: picSelected"><span data-bind="html: picName"></span>
+<a data-role="detailbutton" data-style="rowdelete" data-bind="click: onRemovePic"></a></li>
+    -->
+
+    <!-- Edit My Profile -->
+    <form id="Qare-signUp">
+	    <ul id="signup-form" data-role="listview" data-style="inset">
+            <li>
+            	<img id="editMyProfilePicture" class="myprofile-picture" width="50%">
+            </li>
+            <li>
+                <!--<a data-role="button" data-bind="events: { click: editMyProfileViewModel.capturePhotoDataUrl }">Wijzig je foto A</a>-->
+                <a data-role="button" data-bind="events: { click: editMyProfileViewModel.capturePhotoFileUri }">Wijzig je foto</a>
+                <!--<input value="Browse" type="file" data-bind="events: { change: saveItem }" id="newPicture" />-->
+                <a data-role="button" data-bind="events: { click: editMyProfileViewModel.saveItem }">Bevestig Foto</a>
+            </li>
+            <li><b><label>Naam:</label></b>
+            	<input type="text" id="editMyProfileName" data-bind="value: editMyProfileViewModel.fields.displayname" readonly>
+    		</li>
+            <li><b><label>Gebruikersnaam:</label></b>
+            	<input type="text" id="editMyProfileUsername" data-bind="value: editMyProfileViewModel.fields.editMyProfileUsername" readonly>
+    		</li>
+            <li><b><label>Woonplaats:</label></b>
+	            <input type="text" id="editMyProfileCity" data-bind="value: editMyProfileViewModel.fields.city">
+            </li>
+            <li><b><label>Geboortedatum:</label></b>
+	            <input type="text" id="editMyProfileAge" data-bind="value: editMyProfileViewModel.fields.age" readonly>            
+            </li>
+            <li><b><label>Telefoonnummer:</label></b>
+	            <input type="text" id="editMyProfilePhone" data-bind="value: editMyProfileViewModel.fields.phone">            
+            </li>
+            <li><b><label>Geslacht:</label></b>
+	            <input type="text" id="editMyProfileGender" data-bind="value: editMyProfileViewModel.fields.gender" readonly>            
+            </li>
+            <li><b><label>E-mail:</label></b>
+	            <input type="text" id="editMyProfileEmail" data-bind="value: editMyProfileViewModel.fields.email" readonly>            
+            </li>
+            <li class="txtarea-wrp"><b><label>Omschrijving:</label></b>
+                <textarea id="editMyProfileDescription" rows="10" cols="10" data-bind="value: editMyProfileViewModel.fields.description" placeholder="Omschrijving"></textarea>
+            </li>          
+        </ul>
+        <div>
+            <p>
+                <span data-role="touch">
+                	<a class="qare-btn" data-role="button" data-bind="events: { click: editMyProfileViewModel.submit }">Opslaan</a>
+                </span>
+            </p>
+            <p>
+                <span data-role="touch">
+                	<a class="qare-btn" data-role="button" data-bind="events: { click: editMyProfileViewModel.cancel }">Annuleer</a>
+                </span>
+            </p>
+        </div>
+    </form>
+</div>

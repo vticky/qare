@@ -1,0 +1,41 @@
+<div data-role="view" id="view-all-profiles" data-layout="default" class="activities-view" data-model="app.Profiles" data-after-show="app.myProfilesAfterShow">
+    <div data-role="header">
+        <div data-role="navbar">
+            <div class="qare-span-filterdialog">
+                <span> Profielen</span>
+            </div>
+           
+           <a class="nav-button nav-button-icon nav-button-header" onclick="window.location.replace('index.html');" data-align="left"></a>
+            <a class="nav-button" data-align="right" data-role="button" data-icon="add" href="views/addProfileView.html"></a>
+        </div>
+    </div>
+    <ul data-style="inset" data-role="listview" data-template="profilesTemplate" data-bind="source: profiles">
+    </ul>
+
+    <footer data-role="footer">
+        <div data-role="tabstrip" id="navigation-container">
+            
+			<a onclick="window.location.replace('#views/myActivitiesView.html');" id="provider-activities" data-icon="organize">Aanbod</a>
+            <a onclick="window.location.replace('#views/myBookingsView.html');" id="provider-bookings" data-icon="bookmarks">Boekingen</a>
+            <a onclick="window.location.replace('#views/profilesView.html');" id="provider-profiles" data-icon="mostviewed">Profielen</a>
+            <a onclick="window.location.replace('#views/myProfileView.html');" id="provider-myprofile" data-icon="contacts">Profiel</a>
+        </div>
+    </footer>
+</div>
+<script type="text/x-kendo-template" id="profilesTemplate">
+    <a>
+        <div data-role="touch" data-bind="events: { tap: activitySelected }" class="cf">
+            <div class="user-avatar">
+                <img data-bind="attr:{src: User().PictureUrl}" alt="#: data.Name #">
+            </div>
+            <div class="activity-content">
+                <h2 class="activity-title">#: data.Name #</h2>
+                <div data-bind="visible: Picture">
+                    <img id="picture" class="picture" width="100%">
+                </div>
+                <span class="main-span">#: Age #</span><br/>
+                <span class="main-span">#: Gender #</span><br/>
+            </div>
+        </div>
+   </a> 
+</script>

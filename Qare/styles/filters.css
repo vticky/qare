@@ -1,0 +1,92 @@
+input[type=checkbox] {
+    content: "";  
+    display: inline-block;  
+    width: 20px;  
+    height: 20px;  
+    vertical-align:middle;
+    margin-right: 8px;  
+    background: #fff;  
+    box-shadow: none;
+    border-radius: 2px;
+    border:1px #ccc solid;
+    -moz-appearance:none;
+	-webkit-appearance:none;
+	-o-appearance:none;
+}
+/*input[type=checkbox]#category-gezelschap:checked,
+input[type=checkbox]#category-huishoudelijk:checked,
+input[type=checkbox]#category-huisdieren:checked,
+input[type=checkbox]#category-zorg:checked{
+    
+    content: "";  
+    display: inline-block;  
+    width: 15px;  
+    height: 15px;  
+    vertical-align:middle;
+    margin-right: 8px;  
+    background: #fff;  
+    box-shadow: none;
+    border-radius: 2px;
+    border:1px #ccc solid;
+    -moz-appearance:none;
+	-webkit-appearance:none;
+	-o-appearance:none;
+}*/
+input[type=checkbox]#category-gezelschap:checked{
+	content: '✓';
+    color:#fff;
+    background: #FF6600;
+    border:1px #FF6600 solid;
+}
+input[type=checkbox]#category-huishoudelijk:checked{
+	content: '✓';
+    color:#fff;
+    background: #FF3DB1;
+    border:1px #FF3DB1 solid;
+}
+input[type=checkbox]#category-huisdieren:checked{
+	content: '✓';
+    color:#fff;
+    background: #00CC00;
+    border:1px #00CC00 solid;
+}
+input[type=checkbox]#category-zorg:checked{
+	content: '✓';
+    color:#fff;
+    background: #3DB1FF;
+    border:1px #3DB1FF solid;
+}
+input[type=checkbox]:checked {
+	content: '✓';
+    color:#fff;
+    background: #32A1A9;
+    border:1px #32A1A9 solid;
+}
+input[type=checkbox]:hover {
+    box-shadow:none;
+}
+/* RADIOBUTTONS */
+input[type=radio]{
+    content: "";  
+    display: inline-block;  
+    width: 15px;  
+    height: 15px;  
+    vertical-align:middle;
+    margin-right: 8px;  
+    background: #fff;  
+    box-shadow: none;
+    border-radius: 15px;
+    border:1px #ccc solid;
+    -moz-appearance:none;
+	-webkit-appearance:none;
+	-o-appearance:none;
+}
+input[type=radio]:checked {
+    color:#fff;
+    background: #32A1A9;
+    border:1px #32A1A9 solid;
+}
+
+input[type=radio]:hover {
+    box-shadow:none;
+}

@@ -1,0 +1,70 @@
+<div data-role="view" data-title="Profile person" data-layout="main-nonav" data-model="app.profilePersonView" data-show="app.profilePersonView.onShow">
+    <header data-role="header">
+        <div data-role="navbar">Profiel
+            <a class="nav-button nav-button-icon nav-button-qare" data-align="left" data-role="button" data-bind="events: { click: profilePersonViewModel.home }"></a>
+            <!--<a class="nav-button nav-button-icon nav-button-back hide-text" data-align="left" data-bind="events: { click: myProfileViewModel.home }">Back</a>-->
+            <a class="nav-button" data-align="right" data-role="button" data-icon="compose" href="#views/editMyProfileView.html"></a>
+        </div>
+    </header>
+	<!-- My Profile Picture -->
+    <div class="filter-wrapper">
+        <div class="filter-left">
+            <div class="picture-wrp">
+                <img id="myProfilePicture" class="picture" width="100%">
+			</div>
+        </div>
+    </div>
+    <!-- My Profile Details -->
+    <div id="activity-main-container" class="activity-main-container">
+        <div class="filter-wrapper">
+            <div class="filter-left">
+                <h2 id="myProfileName" data-bind="value: fields.name"></h2>
+            </div>
+        </div>
+        <hr class="activity-divide-line"/>
+        <div class="activity-wrapper">
+            <div class="activity-left">
+                <label>Plaats:</label> <b><span id="myProfileCity" class="qare-text"></span></b>
+            </div>
+            <div class="activity-right">
+                <label>Leeftijd:</label> <b><span id="myProfileAge" class="qare-text"></span></b>
+            </div>            
+        </div>
+        <hr class="activity-divide-line"/>
+        <div class="activity-wrapper">
+            <div class="activity-left">
+                <label>Lid sinds:</label> <b><span id="myProfileCreated" class="qare-text"></span></b>
+            </div>
+            <div class="activity-right">
+                <label>Boekingen:</label> <b><span></span></b>
+            </div>            
+        </div>
+        <hr class="activity-divide-line"/>
+        <div class="activity-wrapper">
+            <div class="activity-left">
+                <label>Telefoon:</label> <b><span id="myProfilePhone" class="qare-text"></span></b>
+            </div>
+            <div class="activity-right">
+                <label>Geslacht:</label> <b><span id="myProfileGender" class="qare-text"></span></b>
+            </div>            
+        </div>
+        <hr class="activity-divide-line"/>
+        <div class="activity-wrapper">
+            <div class="activity-left">
+                <label>E-mail:</label> <b><span id="myProfileEmail" class="qare-text"></span></b>
+            </div>
+        </div>
+        <hr class="activity-divide-line"/>
+        <div class="activity-wrapper">
+            <div class="activity-left">
+                <label><b>Omschrijving</b></label><br/>
+                <span id="myProfileDescription"></span>
+            </div>
+        </div>
+        <p>
+           <span data-role="touch">
+                <a class="qare-btn" class="button button-block button-submit" data-role="button" onclick="window.location.replace('index.html');" id="logout">Uitloggen</a>
+            </span>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div data-role="view" id="view-all-myactivities" data-layout="default" class="activities-view" data-model="app.Activities" data-init="app.init" data-after-show="app.myActivitiesAfterShow">
+    <div data-role="header">
+        <div data-role="navbar">
+            <div class="qare-span-filterdialog">
+                <span>Aanbod</span>
+            </div>
+            <a class="nav-button nav-button-icon nav-button-header" data-align="left" onclick="window.location.replace('#views/myActivitiesView.html');"></a>
+            <a class="nav-button" data-align="right" data-role="button" data-icon="add" href="views/addActivityView.html"></a>
+        </div>
+        <div class="activities-fixed-group"></div>
+    </div>
+
+    <!-- Activities -->
+    <ul id="myactivities-listview" data-style="inset" data-role="listview" 
+        data-header-template="header-template" data-template="myActivityTemplate" 
+        data-bind="source: activities" data-init="app.initMyActivities" data-pull-to-refresh="true" 
+        data-messages='{ "pullTemplate": "Aanbod verversen", "refreshTemplate": "Aanbod bijgewerkt", "releaseTemplate": "Verversen" }'></ul>
+    <p id="no-activities-span" hidden="hidden" class="no-items-msg">
+        <b>Er zijn nog geen activiteiten.</b><br><br>Klik op het + icoon om er 1 toe te voegen.
+    </p>
+
+    <footer data-role="footer">
+        <div data-role="tabstrip" id="navigation-container">
+            <a style="color: #32A1A9" onclick="window.location.replace('#views/myActivitiesView.html');" id="provider-activities" data-icon="organize">Aanbod</a>
+            <a onclick="window.location.replace('#views/myBookingsView.html');" id="provider-bookings" data-icon="bookmarks">Boekingen</a>
+            <!--<a onclick="window.location.replace('#views/profilesView.html');" id="provider-profiles" data-icon="mostviewed">Profielen</a>-->
+            <a onclick="window.location.replace('#views/providerMyProfileView.html');" id="provider-myprofile" data-icon="contacts">Profiel</a>
+        </div>
+    </footer>
+</div>
+
+<!-- Activities ListView Template -->
+<script type="text/x-kendo-template" id="myActivityTemplate">
+    <a class="activity-category-border activity-category-border-#: Category #">
+        <div data-role="touch" data-bind="events: { tap: activitySelected }" class="cf">
+            <div class="user-avatar">
+                <img data-bind="attr:{src: User().PictureUrl}" alt="#: User().Name #">
+            </div>
+            <div class="activity-content">
+                <h2 class="activity-title">#: Text #</h2>
+                <div data-bind="visible: Picture">
+                    <img id="picture" class="picture" data-bind="attr:{src: PictureUrl()}" width="100%">
+                </div>
+                <span class="main-span">#: City # (0.0 km)</span><br/>
+                <span class="main-span">#: ActivityStartTime # uur</span> - <span class="main-span">#: ActivityEndTime # uur</span><br/>
+                <!-- <span id="activity-category" data-bind="style: {color: catColor}">#: Category #</span> -->
+            </div>
+        </div>
+    </a> 
+</script>
+<script type="text/x-kendo-template" id="header-template">
+    #= kendo.toString(value, "d-MMM-yyyy") #   
+</script>

@@ -1,0 +1,55 @@
+<div data-role="view" id="share" data-layout="default" data-transition="overlay:down" class="add-profile-view"
+    data-init="app.AddProfile.init" data-show="app.AddProfile.show" data-model="app.AddProfile">
+    <div data-role="header">
+        <div data-role="navbar">
+            Profiel toevoegen
+            <a class="nav-button" data-align="right" data-role="backbutton">X</a>
+        </div>
+    </div>
+   <div id="addProfile" class="form-view">
+        <form>
+            <ul class="form-content" data-role="listview" data-style="inset">            
+                <li>
+                    <label>Naam
+                        <input id="newName" type="text">
+                    </label>
+                </li>
+               <li>
+                    <label>Omschrijving
+                        <textarea id="newDescription"></textarea>
+                    </label>
+                </li>
+                <li>
+                    <label>Leeftijd
+                        <input id="newAge" type="text">
+                    </label>
+                </li>                
+                <li>
+                    <label>Geslacht
+                        <select id="newGender" data-role="dropdownlist">
+                            <option value=""></option>
+                            <option value="Vrouw">Vrouw</option>
+                            <option value="Man">Man</option>
+                        </select>
+                    </label>
+                </li>
+                <li>
+                    <label>Voorkeur leeftijdscategorie
+                        <select id="newAgeRange" data-role="dropdownlist">
+                            <option value=""></option>
+                            <option value="18-35">18-35</option>
+                            <option value="36-50">36-50</option>
+                            <option value="51-100">51-100</option>
+                        </select>
+                    </label>
+                </li>
+            </ul>
+            <p>
+                <span data-role="touch">
+                	<a class="qare-btn" data-role="button" data-bind="events: { click: saveProfile }">Toevoegen</a>
+                </span>
+            </p>             
+        </form>
+    </div>
+
+</div>

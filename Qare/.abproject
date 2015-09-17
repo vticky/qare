@@ -1,11 +1,11 @@
 {
   "ProjectName": "Qare",
-  "ProjectGuid": "c8235c5e-e608-4a75-8d1a-2a44679b9a74",
+  "ProjectGuid": "6059eccd-8437-429d-980e-d33645adabd6",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.Qare",
-  "DisplayName": "Qare",
-  "Author": "",
-  "Description": "Qare",
+  "AppIdentifier": "nl.qare.hybrid",
+  "DisplayName": "QARE Hybrid",
+  "Author": "Tony den Doop",
+  "Description": "QARE V2 Hybrid",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
@@ -32,10 +32,10 @@
     "ID_CAP_WEBBROWSERCOMPONENT"
   ],
   "WP8Requirements": [],
-  "WP8PublisherID": "{08d2b071-3ccd-4bc3-91de-07f32cc86597}",
-  "WP8ProductID": "{55136c50-1467-4c5c-9620-a788544e79cf}",
+  "WP8PublisherID": "{df279594-7294-4c19-a441-427688408159}",
+  "WP8ProductID": "{8f909ccb-cb64-404e-9815-456ec7452d5f}",
   "WPSdk": "8.0",
-  "WP8PackageIdentityName": "1234Telerik.Qare",
+  "WP8PackageIdentityName": "1234Telerik.QAREV2Hybrid",
   "WP8WindowsPublisherName": "CN=Telerik",
   "WP8SupportedResolutions": [
     "ID_RESOLUTION_WVGA",

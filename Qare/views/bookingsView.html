@@ -1,0 +1,74 @@
+<div data-role="view" id="view-all-bookings" data-layout="default" class="activities-view" data-model="app.Activities" data-after-show="app.bookingsAfterShow">
+    <div data-role="header">
+        <div data-role="navbar">
+            <div class="qare-span-filterdialog">
+            	<span>Boekingen</span>
+            </div>
+            <a class="nav-button nav-button-icon nav-button-header" data-align="left" data-role="button" onclick="window.location.replace('#views/activitiesView.html');"></a>
+          <!-- <span data-role="touch">
+            	<a class="nav-button" data-align="right" data-role="backbutton">X</a>
+            </span> -->
+        </div>
+        <div class="activities-subheader-group">
+            <div class="activity-wrapper">
+                <div class="activity-left">
+                    <p>
+                        <span data-role="touch">
+                            <a class="qare-bookings-btn-left" data-role="button" data-click="app.bookingsAfterShow">Actueel</a>
+                        </span>
+                    </p>                
+                </div>
+                <div class="activity-left">
+                    <p>
+                        <span data-role="touch">
+                            <a class="qare-bookings-btn-right" data-role="button" data-click="app.bookingsHistoryAfterShow">Geschiedenis</a>
+                        </span>
+                    </p>                  
+                </div>            
+            </div>            
+        </div>
+        <div class="activities-fixed-group">
+        </div>
+    </div>
+
+    <!-- Activities -->
+    <ul id="bookings-listview" data-style="inset" data-role="listview" data-header-template="header-template" data-template="bookingTemplate" data-bind="source: activities" data-init="app.init" data-pull-to-refresh="true" data-messages='{ "pullTemplate": "Aanbod verversen", "refreshTemplate": "Aanbod bijgewerkt", "releaseTemplate": "Verversen" }'></ul>
+    <p id="no-activities-span" hidden="hidden" class="no-items-msg">
+        <b>Er zijn nog geen activiteiten.</b><br><br>Klik op het + icoon om er 1 toe te voegen.
+    </p>
+    
+    <!-- Footer -->
+    <footer data-role="footer">
+        <div data-role="tabstrip" id="navigation-container"> 
+            <a onclick="window.location.replace('#views/activitiesView.html');" id="volunteer-activities" data-icon="organize">Aanbod</a>
+            <a style="color: #32A1A9" onclick="window.location.replace('#views/bookingsView.html');" id="volunteer-bookings" data-icon="bookmarks">Boekingen</a>
+            <a onclick="window.location.replace('#views/favoritesView.html');" id="volunteer-favorites" data-icon="favorites">Favorieten</a>
+            <a onclick="window.location.replace('#views/myProfileView.html');" id="provider-myprofile" data-icon="contacts">Profiel</a>
+        </div>
+    </footer>    
+</div>
+
+<!-- TEMPLATES -->
+<!-- Activities ListView Template -->
+<script type="text/x-kendo-template" id="bookingTemplate">
+    <a class="activity-category-border activity-category-border-#: Category #">
+    <div data-role="touch" data-bind="events: { tap: activitySelected }" class="cf">
+        <div class="user-avatar">
+            <img data-bind="attr:{src: User().PictureUrl}" alt="#: User().Name #">
+        </div>
+        <div class="activity-content">
+            <h2 class="activity-title">#: Text #</h2>
+            <div data-bind="visible: Picture">
+                <img id="picture" class="picture" data-bind="attr:{src: PictureUrl()}" width="100%">
+            </div>
+            <span class="main-span">#: City # (0.0 km)</span><br/>
+            <span class="main-span">#: ActivityStartTime # uur</span> - 
+            <span class="main-span">#: ActivityEndTime # uur</span><br/>
+            <!--<span id="activity-category" data-bind="style: {color: catColor}">#: Category #</span>-->
+        </div>
+    </div>
+   </a> 
+</script>
+<script type="text/x-kendo-template" id="header-template">
+    #= kendo.toString(value, "d MMM yyyy") #   
+</script>
