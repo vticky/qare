@@ -1,27 +1,84 @@
 <div data-role="view" id="share" data-layout="default" data-transition="overlay:down" >
     <div data-role="header">
         <div data-role="navbar">
-             Introduction
-            <a class="nav-button nav-button-icon nav-button-back" data-align="left" data-role="backbutton"></a>
-			
-            
-        </div>
-    </div>
-    <div data-role="header">
-        <div data-role="navbar">
            <div class="nav-logo"><img src="styles/images/logo_small.png" /></div>
             
             <div class="qare-span-filterdialog">
-            	<span>Introduction</span>
+            	<span>Introductie</span>
             </div>
-            <span data-role="touch">
-            	<a class="nav-button" data-align="right" data-role="backbutton">X</a>
-            </span>
         </div>
     </div>
     <!-- check input types http://www.w3schools.com/html/html_form_input_types.asp -->
-    <div id="introduction" class="introduction">
-        This is application introduction
-        to be implemented
+    <div id="introduction" class="introduction" data-role="scrollview" data-source="localDataSource" height="400px"
+        data-template="scrollview-batch-template" data-items-per-page="1" data-content-height="400px" data-enable-pager="true">
+        
+        
     </div>
+    <span data-role="touch">
+        <a class="nav-button sla-over" data-align="center" data-role="backbutton">Sla over ></a>
+    </span>
 </div>
+<script id="scrollview-batch-template" type="text/x-kendo-template">
+    <div class="picture-wrp" width="100%">
+        <img id="myProfilePicture" src="#: src #" class="picture"  width="100%">
+    <div class="introductionTitle">#: title #</div>    
+	</div>
+    
+</script>
+ 
+<script>
+//    _500px.init({
+ ///       sdk_key: 'a3be03a8a98d6e05af17f60d2cf4bf696eb47555'
+   // });
+
+    var screens = [
+            { title: "De app voor het samenbrengen van eenzame ouderen en buurdgenoten", id: 1, src: "styles/images/intro1.jpg" },
+            { title: "Kies zelf wat je zou willen don en wanneer. Eenmalig of vaker", id: 2, src: "styles/images/intro2.jpg" },
+            { title: "En maak de dag van een eenzame buurtgenoot een stuk gezelliger", id: 3, src: "styles/images/intro3.jpg" },
+            { title: "Meld je nu aan! Of klik heir hup bij het aanmelden.", id: 4, src: "styles/images/intro4.jpg" }
+    ];
+    
+    var localDataSource = new kendo.data.DataSource({ data: screens });
+    localDataSource.read();
+    var _500pxBatchDS = new kendo.data.DataSource({
+        transport: {
+            read: function (options) {
+                var params = {
+                    feature: "popular",
+                    exclude: "Nude",
+                    image_size: 3,
+                    page: options.data.page,
+                    rpp: options.data.pageSize
+                };
+
+                _500px.api("/photos", params, function (response) {
+                    options.success(response.data);
+                });
+            }
+        },
+        serverPaging: true,
+        pageSize: 36,
+        schema: {
+            data: "photos",
+            total: "total_items"
+        }
+    });
+</script>
+
+<style>
+    .batch-page {
+        height: 100%;
+        width: 100%;
+    }
+
+    .tile {
+        height: 50%;
+        width: 50%;
+        float: left;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+</style>

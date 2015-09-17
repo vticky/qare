@@ -59,6 +59,19 @@
   background-color: #ccc;
   color:#4d4d4d;
 }
+
+.km-pages  > li{
+     width:0.8em !important;
+     height:0.8em !important;
+     background-color:white !important;
+     border:#32A1A9 1px solid !important;
+ }
+
+.km-pages > .km-current-page
+{
+     background-color:#32A1A9 !important;      
+}
+
 .km-flat .km-tabstrip .km-button {
   background-color: #F2F2F2;
   color:#4d4d4d;
@@ -812,5 +825,5 @@ input[type='week'] {
     background-image: url(images/logo-adfs@2x.png);
   }
     
-     
+ 
 }
