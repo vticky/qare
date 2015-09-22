@@ -101,6 +101,7 @@ app.AddActivity = (function () {
                 activity.Description = $newDescription.val();
                 activity.City = $newCity.val();
                 activity.ActivityDate = $newDate.val();
+                activity.DayInWeek = $newDate.val();
                 //activity.DateActivity = $newDate.val();
                 activity.ActivityStartTime = $newStartTime.val();
                 activity.ActivityEndTime = $newEndTime.val();

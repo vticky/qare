@@ -1,6 +1,8 @@
 function onPushNotificationReceived(e) {
     //alert(JSON.stringify(e));
 }
+kendo.culture("nl-NL");
+
 var app = (function (win) {
     'use strict';
 
@@ -159,8 +161,7 @@ var app = (function (win) {
             //return kendo.toString(new Date(dateString), 'MMM d, yyyy');
             return kendo.toString(new Date(dateString), 'd-MMM-yyyy');
         },
-
-        // Current user logout
+                // Current user logout
         logout: function () {
             return el.Users.logout();
         },

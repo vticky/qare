@@ -262,6 +262,10 @@ app.Activities = (function () {
                     field: 'CreatedAt',
                     defaultValue: new Date()
                 },
+                DayInWeek: {
+                    field: 'DayInWeek',
+                    defaultValue: 1
+                },
                 Picture: {
                     fields: 'Picture',
                     defaultValue: null
@@ -290,7 +294,7 @@ app.Activities = (function () {
             ActivityDateFormatted: function () {
 
                 return app.helper.formatDate(this.get('ActivityDate'));
-            },            
+            }, 
             PictureUrl: function () {
 
                 return app.helper.resolvePictureUrl(this.get('Picture'));

@@ -63,6 +63,10 @@ app.myActivities = (function () {
                     field: 'CreatedAt',
                     defaultValue: new Date()
                 },
+                DayInWeek: {
+                    field: 'DayInWeek',
+                    defaultValue: 1
+                },
                 Picture: {
                     fields: 'Picture',
                     defaultValue: null
