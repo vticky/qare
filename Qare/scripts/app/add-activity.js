@@ -8,7 +8,6 @@ app.AddActivity = (function () {
     'use strict'
 
     var addActivityViewModel = (function () {
-        
         var $newText;
         var $newDescription;
         var $newCity;
@@ -21,7 +20,6 @@ app.AddActivity = (function () {
         var validator;
         
         var init = function () {
-            
             validator = $('#addActivity').kendoValidator().data('kendoValidator');
 
             $newText = $('#newText');
@@ -37,9 +35,7 @@ app.AddActivity = (function () {
         };
         
         var show = function () {
-            
             // Clear field on view show
-
             $newText.val('');
             $newDescription.val('');
             $newCity.val('');
@@ -51,20 +47,54 @@ app.AddActivity = (function () {
             
             validator.hideMessages();
             $newDescription.prop('rows', 5);
+            navigator.geolocation.getCurrentPosition(
+                onSuccessShowMap,
+                onErrorShowMap
+                );
+        };
+        function onSuccessShowMap(position) {
+            var latlng = new google.maps.LatLng(
+                position.coords.latitude,
+                position.coords.longitude);
+   
+            var mapOptions = {
+                    
+                sensor: true,
+                center: latlng,
+                panControl: false,
+                zoomControl: true,
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                streetViewControl: false,
+                mapTypeControl: true,
+    
+            };
+            
+            var map = new google.maps.Map(
+                $('#map_canvas1'),
+                mapOptions
+                );
+    
+            var marker = new google.maps.Marker({
+                                                    position: latlng,
+                                                    map: map
+                                                });
+        
+            console.log(marker);
+            console.log("map rendering");
+        };
+        function onErrorShowMap(error) {
+            alert("error");
         };
         
         var cancel = function() {
-            
             app.mobileApp.navigate('#views/myActivitiesView.html', 'fade');
         };
         
         var saveActivity = function () {
-            
             // Validating of the required fields
             if (validator.validate()) {
-                
                 // Adding new activity to Activities model
-                
                 var activity = app.Activities.activities.add();
                 
                 activity.Text = $newText.val();
@@ -80,15 +110,18 @@ app.AddActivity = (function () {
 
                 activity.UserId = app.Users.currentUser.get('data').Id;
                 
-                
-                app.Activities.activities.one('sync', function () {
+                var activityProvider = app.everlive.data('Activities');
+                var activities = app.Activities.activities;
+
+                activities.one('sync', function () {
                     app.showAlert("Activiteit is aangemaakt.");
-                   // app.Activities();
+                    // app.Activities();
                     //app.mobileApp.navigate('#:back');
                     app.mobileApp.navigate('views/myActivitiesView.html');
                 });
                 
-                app.Activities.activities.sync();
+                activities.sync();
+                //app.Activities.activities.refresh();
             }
         };
         
@@ -99,9 +132,7 @@ app.AddActivity = (function () {
             save: saveActivity,
             cancel: cancel
         };
-        
     }());
     
     return addActivityViewModel;
-    
 }());

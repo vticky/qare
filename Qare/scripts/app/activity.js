@@ -127,10 +127,11 @@ app.Activity = (function () {
             $activityPicture;
         
          // Navigate to profilePersonView When some activity is selected
-        var activitySelected = function (e) {
+        var profileSelected = function (e) {
             app.mobileApp.navigate('views/profilePersonView.html?uid=' + e.data.uid);
         };
         
+    
         var init = function () {
             $commentsContainer = $('#comments-listview');
             $organisationsContainer = $('#organisations-listview');
@@ -152,8 +153,10 @@ app.Activity = (function () {
             listScroller.reset();
             
             activityUid = e.view.params.uid;
+            console.log(activityUid);
             // Get current activity (based on item uid) from Activities model
             activity = app.Activities.activities.getByUid(activityUid);
+            console.log(activity);
             $activityPicture[0].style.display = activity.Picture ? 'block' : 'block';
 			
              var currentUserType = app.Users.currentUser.data.UserType;
@@ -203,7 +206,8 @@ app.Activity = (function () {
                 field: 'ActivityId',
                 operator: 'eq',
                 value: activity.Id
-            });              
+            });
+            
             
             kendo.bind(e.view.element, activity, kendo.mobile.ui);
         };
@@ -525,6 +529,10 @@ app.Activity = (function () {
             decline: declineActivity,
             cancel:cancelActivity,
             push: pushTest,
+            profileSelected: profileSelected,
+            activityId: function(){
+                return activityUid;
+            },
             activity: function () {
                 return activity;
             }

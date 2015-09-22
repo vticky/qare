@@ -177,6 +177,8 @@
 #qareApp .activity-btn-new-organization a
 #qareApp .activity-btn-delete a,
 #qareApp .activity-btn-new-profile a,
+#qareApp .activity-btn-cancel a,
+#qareApp .activity-btn-decline a,
 #qareApp .activity-btn-new-review a{
     font-weight:normal;    
 }
@@ -184,6 +186,8 @@
 #qareApp .activity-btn-new-profile,
 #qareApp .activity-btn-new-review,
 #qareApp .activity-btn-delete,
+#qareApp .activity-btn-cancel,
+#qareApp .activity-btn-decline,
 #qareApp .activity-btn-book{
     display: block;
     background: #32A1A9;

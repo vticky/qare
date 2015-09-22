@@ -1,5 +1,5 @@
 <div data-role="view" id="share" data-layout="default" data-transition="overlay:down" class="add-activity-view"
-    data-init="app.AddActivity.init" data-show="app.AddActivity.show" data-model="app.AddActivity">
+    data-init="app.AddActivity.init" data-show="app.AddActivity.show" data-model="app.AddActivity" data-stretch="true">
     <div data-role="header">
         <div data-role="navbar">
            <div class="nav-logo"><img src="styles/images/logo_small.png" /></div>
@@ -39,8 +39,14 @@
                     
                 </li>
                 <li>
+                     <label class="add-activity-form-label">Location</label>
+                    <div id="map_canvas1" style="width: 30%; height: 30%; position: relative;"></div>
+                        
+                    
+                </li>
+                <li>
                     <label class="add-activity-form-label">Datum</label>
-                        <input id="newDate" type="date" required>
+                        <input id="newDate" type="date" data-date-format="dd.MM.yyyy" required>
                 </li>
                 <li>
                     <label class="add-activity-form-label">Tijd (Aanvang)</label>
@@ -114,6 +120,7 @@
                         <textarea id="newDescription" placeholder="omschrijving" required></textarea>
                 </li> 
             </ul>
+            
             <p>
                 <span data-role="touch">
                 	<a class="qare-btn" data-role="button" data-bind="events: { click: save}">Toevoegen</a>

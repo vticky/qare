@@ -92,76 +92,51 @@
                 <b>Voorkeuren</b>
             </p>
             <hr class="filter-divide-line"/>
-            <div>
+            
                 <div class="filter-wrapper">
-                    <div class="filter-left">
-                        <p>
-                            <input type="radio" name="location" value="Binnen"> Binnen
-                        </p>
-                        <p>
-                            <input type="radio" name="location" value="Buiten" checked> Buiten
-                        </p>
+               
+                    <div class="filter-wrapper">
+                        <div class="filter-left">
+                            <p>
+                                <input type="checkbox" checked>Ma
+                            </p>
+                            <p>
+                                <input type="checkbox" checked>Vr
+                            </p>
+                        </div>
+                        <div class="filter-left">
+                            <p>
+                                <input type="checkbox" checked>Di
+                            </p>
+                            <p>
+                                <input type="checkbox" checked>Za
+                            </p>
+                        </div>
+                        <div class="filter-left">
+                            <p>
+                                <input type="checkbox" checked>Wo
+                            </p>
+                            <p>
+                                <input type="checkbox" checked>Zo
+                            </p>
+                        </div>
+                        <div class="filter-left">
+                            <p>
+                                <input type="checkbox" checked>Do
+                            </p>
+                        </div>
                     </div>
-                    <div class="filter-left">
-                        <p>
-                            <input type="radio"  class="filter-gender" id="gender-man" data-bind="checked: ongenderchange" value="Man">Man
-                        </p>
-                        <p>
-                            <input type="radio"  class="filter-gender" id="gender-female" data-bind="checked: ongenderchange" value="Vrouw">Vrouw
-                        </p>
-                    </div>
-                    <div class="filter-left">
-                        <p>
-                            <input type="radio" name="formation" value="Individu">Individu
-                        </p>
-                        <p>
-                            <input type="radio" name="formation" value="Groep" checked>Groep
-                        </p>
-                    </div>
-                </div>
-                <hr class="filter-divide-line"/>
-                <div class="filter-wrapper">
-                    <div class="filter-left">
-                        <p>
-                            <input type="checkbox" checked>Ma
-                        </p>
-                        <p>
-                            <input type="checkbox" checked>Vr
-                        </p>
-                    </div>
-                    <div class="filter-left">
-                        <p>
-                            <input type="checkbox" checked>Di
-                        </p>
-                        <p>
-                            <input type="checkbox" checked>Za
-                        </p>
-                    </div>
-                    <div class="filter-left">
-                        <p>
-                            <input type="checkbox" checked>Wo
-                        </p>
-                        <p>
-                            <input type="checkbox" checked>Zo
-                        </p>
-                    </div>
-                    <div class="filter-left">
-                        <p>
-                            <input type="checkbox" checked>Do
-                        </p>
+                    <hr class="filter-divide-line"/>
+                    <div class="activity-wrapper">
+                        <div class="activity-btn-left">
+                            <p>
+                                <span data-role="touch">
+                                    <a data-role="button" class="activity-btn-new-review" data-click="app.Activities.filterDialog">Zoeken</a>
+                                </span>
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <hr class="filter-divide-line"/>
-                <div class="activity-wrapper">
-                    <div class="activity-btn-left">
-                        <p>
-                            <span data-role="touch">
-                                <a data-role="button" class="activity-btn-new-review" data-click="app.Activities.filterDialog">Zoeken</a>
-                            </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
         </form>
     </div>
 

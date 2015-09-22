@@ -1,10 +1,11 @@
-<div data-role="view" id="single-activity" data-layout="default" class="activity-view" data-init="app.Activity.init" data-show="app.Activity.show" data-after-show="app.statusBtn">
+<div data-role="view" id="single-activity" data-layout="default" class="activity-view" 
+    data-init="app.Activity.init" data-show="app.Activity.show" data-after-show="app.statusBtn">
     <div data-role="header">
         <div data-role="navbar">
              Informatie
             <a class="nav-button nav-button-icon nav-button-back" data-align="left" data-role="backbutton"></a>
 			<!--<a class="nav-button nav-button-icon nav-button-delete hide-text" data-align="right" data-role="button" data-bind="visible: isVisible" data-click="app.Activity.remove">Delete</a>-->
-            <a class="nav-button" data-align="right" data-role="button" data-icon="globe"></a>
+            <a class="nav-button" data-align="right" data-role="button" data-icon="globe" onclick="window.location.replace('#views/kendoMapView.html?uid='+app.Activity.activityId());"></a>
         </div>
     </div>
     <div id="activity-main-container" class="activity-main-container">
@@ -18,7 +19,7 @@
                   
                     <span data-role="touch">
               	      <a class="activity-profilename">
-                          <div data-role="touch" data-bind="events: { tap: activitySelected }" class="cf">
+                          <div data-role="touch" data-bind="events: { tap: profileSelected }" class="cf">
                              <span data-bind="text: User().DisplayName" >  </span>      >
                           </div>
                 	  </a>
@@ -30,6 +31,24 @@
         <hr class="activity-category-border-Gezelschap" style="display:none"/>
         <hr class="activity-category-border-Huishoudelijk" style="display:none"/>
         <hr class="activity-category-border-Huisdieren" style="display:none"/>
+        <div class="activity-btn-left">
+            <p id="activity-btn-requested" style="display:none">
+                    <span data-role="touch">
+                        <a data-role="button" data-icon="recents" class="activity-btn-requested" data-click="app.Activity.confirm">
+                            <span id="activityStatusBtn" >Accepteren</span><!-- Create cancel button -->  
+                        </a>
+                    </span>
+            </p> 
+    	</div>
+    	<div class="activity-btn-right">
+            <p id="activity-btn-decline" style="display:none">
+                    <span data-role="touch">
+                        <a data-role="button" class="activity-btn-decline" data-click="app.Activity.decline">
+                            <span id="activityStatusBtn">Weigeren</span>
+                        </a>
+                    </span>
+             </p>
+        </div>
         <div class="activity-wrapper">
         	<div class="activity-left">
         		<span id="activity-title" data-bind="text: Text" class="activity-title"></span>
@@ -45,6 +64,7 @@
         <div class="activity-wrapper">
         	<div class="activity-left">
         		<label>Datum:</label> <b><span data-bind="text: ActivityDateFormatted"></span></b>
+                <label>Datum:</label> <b><span data-bind="text: ActivityDay"></span></b>
         	</div>
         	<div class="activity-right">
         		<label>Tijd:</label> <b><span data-bind="text: ActivityStartTime"></span> - 
@@ -93,18 +113,18 @@
                 <p id="activity-btn-delete" style="display:none">
                     <span data-role="touch">
                         <a data-role="button"  class="activity-btn-delete" data-click="app.Activity.remove">
-                           <span id="activityStatusBtn">Weigeren</span> 
-                            
+                           <span id="activityStatusBtn">Boeking afzeggen</span> 
                         </a>
                     </span>
                 </p>
                  <p id="activity-btn-cancel" style="display:none">
                     <span data-role="touch">
                         <a data-role="button" class="activity-btn-cancel" data-click="app.Activity.cancel">
-                            <span id="activityStatusBtn">Cancel</span>
+                            <span id="activityStatusBtn">Boeking annuleren</span>
                         </a>
                     </span>
                 </p>
+                 
               <!--  <p id="activity-status-requested" style="display:none">
                     <span data-role="touch">
                         <a data-role="button" data-icon="recents" class="activity-btn-requested">
@@ -112,13 +132,7 @@
                         </a>
                     </span>
                 </p>-->
-                <p id="activity-btn-requested" style="display:none">
-                    <span data-role="touch">
-                        <a data-role="button" data-icon="recents" class="activity-btn-requested" data-click="app.Activity.confirm">
-                            <span id="activityStatusBtn" >Accepteren</span><!-- Create cancel button -->  
-                        </a>
-                    </span>
-                </p> 
+               
                <!-- <a style="display:none" data-role="button" data-icon="recents" class="activity-btn-requested" data-click="app.Activity.confirm"/>
                 <p id="activity-status-confirmed" style="display:none">
                     <span data-role="touch">
