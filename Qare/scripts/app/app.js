@@ -1,7 +1,7 @@
 function onPushNotificationReceived(e) {
     //alert(JSON.stringify(e));
 }
-kendo.culture("nl-NL");
+//kendo.culture("nl-NL");
 
 var app = (function (win) {
     'use strict';

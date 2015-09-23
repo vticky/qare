@@ -1,3 +1,4 @@
+
 <div data-role="view" id="view-all-activities" data-layout="default" class="activities-view" data-model="app.Activities" data-init="app.init" data-after-show="app.activitiesReload">
     <div data-role="header">
         <div data-role="navbar">
@@ -11,6 +12,7 @@
             <!--<a class="nav-button nav-button-icon nav-button-header" onclick="window.location.replace('index.html');" data-align="left"></a><a class="nav-button nav-button-icon nav-button-header" onclick="window.location.replace('index.html');" data-align="left"></a>-->
 
             <a class="nav-button" data-align="right" data-role="button" data-icon="search" data-rel="modalview" href="#activitiesFilter"></a>
+            
             <!--<a class="nav-button" data-align="right" data-role="button" data-icon="globe" data-rel="modalview" href="#googleMapView"></a>-->
             <!--<a class="nav-button" data-align="right" data-role="button" href="#views/kendoMapView.html">M</a>-->
             <!--<a class="nav-button" data-align="right" data-role="button" href="#views/imagesView.html">P</a>-->
@@ -72,18 +74,18 @@
             <div class="filter-wrapper">
                 <div class="filter-left">
                     <p>
-                        <input type="checkbox" class="filter-category" id="category-huishoudelijk" data-bind="checked: oncategorychange" value="Huishoudelijk">Huishoudelijk
+                        <input type="checkbox" class="filter-category" id="category-huishoudelijk" data-bind="checked: oncatfilterchange" value="Huishoudelijk">Huishoudelijk
                     </p>
                     <p>
-                        <input type="checkbox" class="filter-category" id="category-gezelschap" data-bind="checked: oncategorychange" value="Gezelschap">Gezelschap
+                        <input type="checkbox" class="filter-category" id="category-gezelschap" data-bind="checked: oncatfilterchange" value="Gezelschap">Gezelschap
                     </p>
                 </div>
                 <div class="filter-left">
                     <p>
-                        <input type="checkbox" class="filter-category" id="category-zorg" data-bind="checked: oncategorychange" value="Zorg">Zorg
+                        <input type="checkbox" class="filter-category" id="category-zorg" data-bind="checked: oncatfilterchange" value="Zorg">Zorg
                     </p>
                     <p>
-                        <input type="checkbox" class="filter-category" id="category-huisdieren" data-bind="checked: oncategorychange" value="Huisdieren">Huisdieren
+                        <input type="checkbox" class="filter-category" id="category-huisdieren" data-bind="checked: oncatfilterchange" value="Huisdieren">Huisdieren
                     </p>
                 </div>
             </div>
@@ -98,31 +100,31 @@
                     <div class="filter-wrapper">
                         <div class="filter-left">
                             <p>
-                                <input type="checkbox" checked>Ma
+                                <input type="checkbox" class="filter-days" id="category-monday" data-bind="checked: onfilterchange" value="monday">Ma
                             </p>
                             <p>
-                                <input type="checkbox" checked>Vr
-                            </p>
-                        </div>
-                        <div class="filter-left">
-                            <p>
-                                <input type="checkbox" checked>Di
-                            </p>
-                            <p>
-                                <input type="checkbox" checked>Za
+                               <input type="checkbox" class="filter-days" id="category-tuesday" data-bind="checked: onfilterchange" value="tuesday">Vr
                             </p>
                         </div>
                         <div class="filter-left">
                             <p>
-                                <input type="checkbox" checked>Wo
+                              <input type="checkbox" class="filter-days" id="category-wednesday" data-bind="checked: onfilterchange" value="wednesday">Di
                             </p>
                             <p>
-                                <input type="checkbox" checked>Zo
+                               <input type="checkbox" class="filter-days" id="category-thursday" data-bind="checked: onfilterchange" value="thursday">Za
                             </p>
                         </div>
                         <div class="filter-left">
                             <p>
-                                <input type="checkbox" checked>Do
+                                <input type="checkbox" class="filter-days" id="category-friday" data-bind="checked: onfilterchange" value="friday">Wo
+                            </p>
+                            <p>
+                              <input type="checkbox" class="filter-days" id="category-saturday" data-bind="checked: onfilterchange" value="saturday">Zo
+                            </p>
+                        </div>
+                        <div class="filter-left">
+                            <p>
+                                <input type="checkbox" class="filter-days" id="category-sunday" data-bind="checked: onfilterchange" value="sunday">Do
                             </p>
                         </div>
                     </div>

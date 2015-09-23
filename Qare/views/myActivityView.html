@@ -64,6 +64,7 @@
         <div class="activity-wrapper">
         	<div class="activity-left">
         		<label>Datum:</label> <b><span data-bind="text: ActivityDateFormatted"></span></b>
+                <label>Day:</label> <b><span data-bind="text: DayInWeek"></span></b>
         	</div>
         	<div class="activity-right">
         		<label>Tijd:</label> <b><span data-bind="text: ActivityStartTime"></span> - 
@@ -206,7 +207,7 @@
                 <a style="display:none; color: #32A1A9" data-role="button" onclick="window.location.replace('#views/myActivitiesView.html');" id="provider-activities" data-icon="organize">Aanbod</a>
                 <a  data-role="button" onclick="window.location.replace('#views/bookingsView.html');" id="volunteer-bookings" data-icon="bookmarks">Boekingen</a>
                 <a style="display:none" data-role="button" onclick="window.location.replace('#views/myBookingsView.html');" id="provider-bookings" data-icon="bookmarks">Boekingen</a>
-                <a data-role="button"   onclick="window.location.replace('#views/favoritesView.html');" id="volunteer-favorites" data-icon="favorites">Favorieten</a>
+                <a data-role="button" style="display:none"  onclick="window.location.replace('#views/favoritesView.html');" id="volunteer-favorites" data-icon="favorites">Favorieten</a>
                 <!--<a style="display:none" onclick="window.location.replace('#views/favoritesView.html');" id="volunteer-favorites" data-icon="favorites">Favorieten</a>-->
                 <!--<a style="display:none" data-role="button" onclick="window.location.replace('#views/profilesView.html');" id="provider-profiles" data-icon="mostviewed">Profielen</a>-->
                 <a data-role="button" onclick="window.location.replace('#views/myProfileView.html');" id="provider-myprofile" data-icon="contacts">Profiel</a>

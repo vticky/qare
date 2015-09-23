@@ -30,7 +30,7 @@ app.AddActivity = (function () {
             $newEndTime = $('#newEndTime');
             $newSeats = $('#newSeats');
             $newCategory = $('#newCategory');
-            
+            console.log($newDate.val());            
             $newDescription.on('keydown', app.helper.autoSizeTextarea);
         };
         
@@ -39,7 +39,8 @@ app.AddActivity = (function () {
             $newText.val('');
             $newDescription.val('');
             $newCity.val('');
-            $newDate.val(new Date());//todo: set todays date, fix picker
+            console.log($newDate.val());
+         //   $newDate.val(new Date());//todo: set todays date, fix picker
             $newStartTime.val('');
             $newEndTime.val('');
             $newSeats.val('');
@@ -70,17 +71,17 @@ app.AddActivity = (function () {
     
             };
             
-            var map = new google.maps.Map(
-                $('#map_canvas1'),
-                mapOptions
-                );
+            //var map = new google.maps.Map(
+            //    $('#map_canvas1'),
+            //    mapOptions
+            //    );
     
-            var marker = new google.maps.Marker({
-                                                    position: latlng,
-                                                    map: map
-                                                });
+            //var marker = new google.maps.Marker({
+              //                                      position: latlng,
+                //                                    map: map
+                  //                              });
         
-            console.log(marker);
+            //console.log(marker);
             console.log("map rendering");
         };
         function onErrorShowMap(error) {
@@ -100,8 +101,25 @@ app.AddActivity = (function () {
                 activity.Text = $newText.val();
                 activity.Description = $newDescription.val();
                 activity.City = $newCity.val();
+                console.log($newDate.val());
                 activity.ActivityDate = $newDate.val();
-                activity.DayInWeek = $newDate.val();
+                var day = new Date(activity.ActivityDate).getDay();
+                
+                if(day == 1)
+                activity.DayInWeek = "monday";
+                else if(day == 2)
+                activity.DayInWeek = "tuesday";
+                else if(day == 3)
+                activity.DayInWeek = "wednesday";
+                else if(day == 4)
+                activity.DayInWeek = "thursday";
+                else if(day == 5)
+                activity.DayInWeek = "friday";
+                else if(day == 6)
+                activity.DayInWeek = "saturday";
+                else 
+                activity.DayInWeek = "sunday";
+                //activity.DayInWeek = new Date($newDate.val()).getDay();
                 //activity.DateActivity = $newDate.val();
                 activity.ActivityStartTime = $newStartTime.val();
                 activity.ActivityEndTime = $newEndTime.val();

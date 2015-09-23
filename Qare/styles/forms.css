@@ -59,13 +59,13 @@ position: relative;
   border-bottom-left-radius: 0px;    
   
 }
-#qareApp .qare-bookings-btn-left:active {
+#qareApp .qare-bookings-btn-left:active, #qareApp .qare-bookings-btn-left.active {
 
   color: #32A1A9;
   background-color: #DAF0F2;
    
 }
-#qareApp .qare-bookings-btn-right:active {
+#qareApp .qare-bookings-btn-right:active, #qareApp .qare-bookings-btn-right.active {
 
   color: #32A1A9;
   background-color: #DAF0F2;

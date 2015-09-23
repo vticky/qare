@@ -38,48 +38,85 @@ app.showMap = (function(position) {
 
 });
 app.bookingsAfterShow = (function () {
-    
-    app.Activities.activities.filter(
-        [{field: "Status", operator: "eq", value: "Aangevraagd"},
-        {field: "Status", operator: "eq", value: "Bevestigd"}],
-    	{field: "UserId", operator: "eq", value: app.Users.currentUser.data.Id}, 
-    {field: "ActivityDate", operator: "gt", value: new Date()})
+    $(".qare-bookings-btn-left").addClass("active");
+    $(".qare-bookings-btn-right").removeClass("active");
+    app.Activities.activities.filter({
+        logic: "and", 
+        filters: [
+        	{field: "UserId", operator: "eq", value: app.Users.currentUser.data.Id}, 
+            {field: "ActivityDate", operator: "gt", value: new Date()},
+            {
+                logic:"or",
+                filters: [
+                       {field: "Status", operator: "eq", value: "Aangevraagd"},
+                    {field: "Status", operator: "eq", value: "Bevestigd"}
+                ]
+            }
+        ]});
 
     app.Activities.activities.group(
          { field: "ActivityDate" })
-   
 });
 app.bookingsHistoryAfterShow = (function () {
+    $(".qare-bookings-btn-left").removeClass("active");
+    $(".qare-bookings-btn-right").addClass("active");
+    app.Activities.activities.filter({
+        logic: "and", 
+        filters: [
+        	{field: "UserId", operator: "eq", value: app.Users.currentUser.data.Id}, 
+            {field: "ActivityDate", operator: "lt", value: new Date()},
+            {
+                logic:"or",
+                filters: [
+                       {field: "Status", operator: "eq", value: "Aangevraagd"},
+                        {field: "Status", operator: "eq", value: "Bevestigd"}
+                ]
+            }
+        ]});
     
-    app.Activities.activities.filter(
-        [{field: "Status", operator: "eq", value: "Bevestigd"},
-    	{field: "UserId", operator: "eq", value: app.Users.currentUser.data.Id},
-     {field: "ActivityDate", operator: "lt", value: new Date()}])
-
     app.Activities.activities.group(
          { field: "ActivityDate" })
    
 });
 app.myBookingsAfterShow = (function () {
-    
-    app.Activities.activities.filter(
-        [{field: "Status", operator: "eq", value: "Aangevraagd"},
-    {field: "Status", operator: "eq", value: "Bevestigd"}],
-    	{field: "CreatedBy", operator: "eq", value: app.Users.currentUser.data.Id}, 
-    {field: "ActivityDate", operator: "gt", value: new Date()})
-    
+    $(".qare-bookings-btn-left").addClass("active");
+    $(".qare-bookings-btn-right").removeClass("active");
+        app.Activities.activities.filter({
+        logic: "and", 
+        filters: [
+    	    {field: "CreatedBy", operator: "eq", value: app.Users.currentUser.data.Id}, 
+            {field: "ActivityDate", operator: "gt", value: new Date()},
+            {
+                logic:"or",
+                filters: [
+                       {field: "Status", operator: "eq", value: "Aangevraagd"},
+                        {field: "Status", operator: "eq", value: "Bevestigd"}
+                ]
+            }
+        ]});
+
      app.Activities.activities.group(
          { field: "ActivityDate" })
    
 });
 app.myBookingsHistoryAfterShow = (function () {
-    
-    app.Activities.activities.filter(
-        [{field: "Status", operator: "eq", value: "Bevestigd"},
-    	{field: "CreatedBy", operator: "eq", value: app.Users.currentUser.data.Id},
-     {field: "ActivityDate", operator: "lt", value: new Date()}])
-    
-     app.Activities.activities.group(
+    $(".qare-bookings-btn-left").removeClass("active");
+    $(".qare-bookings-btn-right").addClass("active");
+     app.Activities.activities.filter({
+        logic: "and", 
+        filters: [
+    	    {field: "CreatedBy", operator: "eq", value: app.Users.currentUser.data.Id}, 
+            {field: "ActivityDate", operator: "lt", value: new Date()},
+            {
+                logic:"or",
+                filters: [
+                       {field: "Status", operator: "eq", value: "Aangevraagd"},
+                        {field: "Status", operator: "eq", value: "Bevestigd"}
+                ]
+            }
+        ]});
+
+    app.Activities.activities.group(
            { field: "ActivityDate" })
    
 });
@@ -87,15 +124,41 @@ app.myActivitiesAfterShow = (function () {
     
     app.Activities.activities.filter(
      {field: "Status", operator: "eq", value: "Toegevoegd"},
-          {field: "CreatedBy", operator: "eq", value: app.Users.currentUser.data.Id},
-        {field: "ActivityDate", operator: "gt", value: new Date()}
+          {field: "CreatedBy", operator: "eq", value: app.Users.currentUser.data.Id}
     )
 //    {field: "Status", operator: "eq", value: "Aangevraagd"}],
     app.Activities.activities.group(
        { field: "ActivityDate" })
-     
-    app.Activities.activities.sort (
-         { field: 'ActivityDate', dir: 'asc'})
+
+    var currentUserType = app.Users.currentUser.data.UserType;
+    
+    if (currentUserType === "Vrijwilliger"){
+
+        $("#volunteer-activities").show();
+        $("#volunteer-bookings").show();
+        $("#volunteer-favorites").show();
+        $("#provider-myprofile").show();
+        $("#volunteer-favorites").show();
+    } else if (currentUserType === "Aanbieder"){
+        
+        $("#provider-activities").show();
+        $("#provider-bookings").show();
+        $("#provider-profiles").show();
+        $("#provider-myprofile").show();
+        $("#volunteer-favorites").hide();
+    } else {
+        
+        $("#volunteer-activities").show();
+        $("#volunteer-bookings").show();
+        $("#volunteer-favorites").show();
+        $("#provider-myprofile").show();
+        
+    }
+    
+  
+    //app.Activities.activities.sort (
+      //   { field: 'ActivityDate', dir: 'asc'})
+    console.log("my activities after show");
 });
 app.activitiesReload = (function () { 
     
@@ -131,15 +194,16 @@ app.activitiesReload = (function () {
         
     }
     
+    
     app.Activities.activities.filter(
-        [{field: "Status", operator: "eq", value: "Aangevraagd"},
-        {field: "ActivityDate", operator: "gt", value: new Date()}]);
+        {field: "Status", operator: "eq", value: "Toegevoegd"},
+        {field: "ActivityDate", operator: "gt", value: new Date()});
     
-   app.Activities.activities.group(
-         { field: 'ActivityDate', operator: "gt", value: new Date()});
+    app.Activities.activities.group(
+       { field: "ActivityDate" })
     
-     app.Activities.activities.sort (
-         { field: 'ActivityDate', dir: 'asc', operator: "gt", value: new Date() })
+ //    app.Activities.activities.sort (
+   //      { field: 'ActivityDate', dir: 'asc', operator: "gt", value: new Date() })
     
     //app.Activities.activities.group(
       //   { field: 'Category'})
@@ -149,7 +213,7 @@ app.activitiesReload = (function () {
     
     // app.Activities.activities.group(
     //     { field: "formattedActivityDate" })
-
+    console.log("activities reloaded " +  app.Activities.activities);
 });
 app.init = (function () {
     
@@ -160,56 +224,66 @@ app.init = (function () {
     
     kendo.bind($("input[type='checkbox']"), app.filters);
     kendo.bind($("input[type='radio']"), app.filters);
+    console.log("activities init");
 });
 app.filters = kendo.observable({
-   	
     categories: ["Zorg"],
-    oncategorychange: function () {
+    onfilterchange: function () {
         
-        var filters = [] 
-        $("input.filter-category").each(function () {
-            if (this.checked) filters.push([{ field: "Category", operator: "eq", value: this.value }, {field: "ActivityDate", operator: "gt", value: new Date()},
-                                           {field: "Status", operator: "eq", value: "Aangevraagd"}]);
+        var daysfilters = [] 
+        $("input.filter-days").each(function () {
+            if (this.checked) daysfilters.push({ field: "DayInWeek", operator: "eq", value: this.value });
         });
        
-        if (filters.length > 0) {
-            app.Activities.activities.filter({
-                logic: "or",
-                filters: filters
-            });
-            
+       var filters = []
+        
+        if (daysfilters.length > 0) {
+            filters.push(daysfilters);
         }
-    },
-   ongenderchange: function(){
-      
-        $("input.filter-gender").each(function () {
-            if (this.checked){
-               app.Profiles.profiles.read();
-               var profileGenders = $.grep(app.Profiles.profiles.data(), function (e) {                
-                    return e.Gender === this.value;
-               });
-             }
-       });
+        
+        if(daysfilters.length > 0)
+        {
+            app.Activities.activities.filter({
+                logic:"and",
+                filters: [
+                {field: "ActivityDate", operator: "gt", value: new Date()},
+                {field: "Status", operator: "eq", value: "Toegevoegd"},
+                {
+                    logic:"or",
+                    filters:  daysfilters}
+                ]
+            });
+        }
+        },
+        oncatfilterchange: function () {
+        
+        var categoryfilters = [] 
+        $("input.filter-category").each(function () {
+            if (this.checked) categoryfilters.push({ field: "Category", operator: "eq", value: this.value });
+        });
+        
        
        var filters = []
-       $.each(profileGenders, function( index, value ) {
-                 filters.push([{ field: "ProfileId", operator: "eq", value: value.Id }, 
-                               {field: "ActivityDate", operator: "gt", value: new Date()},
-                               {field: "Status", operator: "eq", value: "Aangevraagd"}]);
-         });
-       
-        if (filters.length > 0) {
-            app.Activities.activities.filter({
-                logic: "or",
-                filters: filters
-            });
-            
+        
+        if (categoryfilters.length > 0) {
+            filters.push(categoryfilters);
         }
-       
-     }   
-
+        
+        if(categoryfilters.length > 0)
+        {
+            app.Activities.activities.filter({
+                logic:"and",
+                filters: [
+                {field: "ActivityDate", operator: "gt", value: new Date()},
+                {field: "Status", operator: "eq", value: "Toegevoegd"},
+                {
+                    logic:"or",
+                    filters:  categoryfilters}
+                ]
+            });
+        }
+    }
 });
-
 app.Activities = (function () {
     
     'use strict'
@@ -252,7 +326,8 @@ app.Activities = (function () {
                 },
                 ActivityDate: {
                     field: 'ActivityDate',
-                    defaultValue: new Date()
+                    //defaultValue: new Date(),
+                    type: "date"
                 },  
                 Status: {
                     field: 'Status',
@@ -263,8 +338,7 @@ app.Activities = (function () {
                     defaultValue: new Date()
                 },
                 DayInWeek: {
-                    field: 'DayInWeek',
-                    defaultValue: 1
+                    field: 'DayInWeek'
                 },
                 Picture: {
                     fields: 'Picture',
@@ -368,12 +442,12 @@ app.Activities = (function () {
             },
             filter: {field: "ActivityDate", operator: "gt", value: new Date()},
             group: { field: "ActivityDate", operator: "gt", value: new Date()},
-            sort: { field: 'ActivityDate', dir: 'asc', operator: "gt", value: new Date() }//,
+            sort: { field: "ActivityDate", dir: 'asc', operator: "gt", value: new Date() }//,
             //filter: [{field: "Status", operator: "eq", value: "Toegevoegd" }]//,
             //{field: "Status", operator: "eq", value: "Aangevraagd"}
                      //{field: "Status", operator: "neq", value: "Bevestigd" }]
         });
-
+        console.log("activities");
         return {
             activities: activitiesDataSource
         };
@@ -385,8 +459,15 @@ app.Activities = (function () {
 
         // Navigate to activityView When some activity is selected
         var activitySelected = function (e) {
-
-            app.mobileApp.navigate('views/activityView.html?uid=' + e.data.uid);
+            var currentUserType = app.Users.currentUser.data.UserType;
+    
+            if (currentUserType === "Vrijwilliger"){
+                app.mobileApp.navigate('views/activityView.html?uid=' + e.data.uid);
+            }
+            else
+            {   app.mobileApp.navigate('views/myActivityView.html?uid=' + e.data.uid);
+            }
+            
         };
 
         // Navigate to app home
@@ -436,7 +517,7 @@ app.Activities = (function () {
             }
             
         };
-
+       console.log("activities view model");
         return {
             activities: activitiesModel.activities,
             activitySelected: activitySelected,
