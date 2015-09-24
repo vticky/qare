@@ -667,7 +667,7 @@ input[type='week'] {
   display: block;
   margin: 0 0 0;
   color: #000;
-  font-size: 0.8rem;
+  font-size: 1.2em !important;
 }
 
 #qareApp .activity-title{
@@ -824,6 +824,17 @@ input[type='week'] {
   #qareApp .welcome-scrn .group-wrp .oauth .btn-adfs {
     background-image: url(images/logo-adfs@2x.png);
   }
-    
+    .activity-content.book.Bevestigd:after
+    {
+        content: '✓';
+    }
+    .activity-content.book.Aangevraagd:after
+    {
+        content: 'recents';
+    }
+    .activity-content.book.Toegevoegd:after
+    {
+        content: 'X';
+    }    
  
 }

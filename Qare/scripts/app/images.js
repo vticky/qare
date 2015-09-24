@@ -106,8 +106,18 @@ app.Fimages = (function () {
 
         // Navigate to activityView When some activity is selected
         var fimageSelected = function (e) {
+ var currentUserType = app.Users.currentUser.data.UserType;
+    
+            if (currentUserType === "Vrijwilliger"){
+    
+                app.mobileApp.navigate('views/activityView.html?uid=' + e.data.uid);
+            }
+            else
+            { 
+    
+                app.mobileApp.navigate('views/myActivityView.html?uid=' + e.data.uid);
+            }
 
-            app.mobileApp.navigate('views/activityView.html?uid=' + e.data.uid);
         };
    
 

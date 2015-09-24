@@ -54,7 +54,7 @@
         <div class="user-avatar">
             <img data-bind="attr:{src: User().PictureUrl}" alt="#: User().Name #">
         </div>
-        <div class="activity-content">
+        <div class="activity-content book #:Status #">
             <h2 class="activity-title">#: Text #</h2>
             <div data-bind="visible: Picture">
                 <img id="picture" class="picture" data-bind="attr:{src: PictureUrl()}" width="100%">
@@ -63,7 +63,7 @@
             <span class="main-span">#: ActivityStartTime # uur</span> - 
             <span class="main-span">#: ActivityEndTime # uur</span><br/>
             <span class="main-span">#: Status # </span><br/>
-            <!--<span id="activity-category" data-bind="style: {color: catColor}">#: Category #</span>-->
+            
         </div>
     </div>
    </a> 

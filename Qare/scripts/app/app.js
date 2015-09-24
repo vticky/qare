@@ -152,7 +152,7 @@ var app = (function (win) {
             if (id && id !== emptyGuid) {
                 return el.Files.getDownloadUrl(id);
             } else {
-                return '';
+                return 'styles/images/qare-logo_360.png';
             }
         },
 

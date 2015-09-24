@@ -24,50 +24,28 @@ app.statusBtn = (function () {
     $("#activity-status-confirmed").hide();        
     
     //Show buttons based upon Current User
-    if (currentUserId === createdById){	
-        if (activityStatus === "Toegevoegd"){
-            $("#activity-btn-book").hide();
-            $("#activity-btn-requested").hide();
-            $("#activity-btn-cancel").hide();
-            $("#activity-btn-delete").show();
-        } 
-        else if (activityStatus === "Aangevraagd"){
-            $("#activity-btn-requested").show();
-            $("#activity-btn-cancel").show(); 
-            $("#activity-btn-book").hide();
-        }
-        else if (activityStatus === "Bevestigd"){
-            $("#activity-btn-book").hide();
-            $("#activity-btn-requested").hide();
-            $("#activity-btn-cancel").show();
-        }
-        else
-        {
-            $("#activity-btn-book").hide();
-            $("#activity-btn-requested").hide();
-            $("#activity-btn-cancel").hide();
-        }
+   
+    if (activityStatus === "Toegevoegd"){
+        $("#activity-btn-book").hide();
+        $("#activity-btn-requested").hide();
+        $("#activity-btn-decline").hide();
+        $("#activity-btn-cancel").hide();
+        $("#activity-btn-delete").show();
+    } 
+    else if (activityStatus === "Aangevraagd"){
+        $("#activity-btn-requested").show();
+        $("#activity-btn-decline").show();
+        $("#activity-btn-cancel").show(); 
+        $("#activity-btn-book").hide();
+        $("#activity-btn-delete").show();
     }
-    else
-    {
-        $(".activity-btn-delete").hide();
-        //Show buttons based upon Activity Status
-        if (activityStatus === "Toegevoegd"){
-            $("#activity-btn-book").show();
-            $("#activity-btn-requested").hide();
-            $("#activity-btn-cancel").hide();
-        }if (activityStatus === "Aangevraagd"){
-            $("#activity-btn-book").hide();
-            $("#activity-btn-requested").hide();
-            $("#activity-btn-cancel").show();
-            //show cancel
-        }if (activityStatus === "Bevestigd"){
-            $("#activity-btn-book").hide();
-            $("#activity-btn-requested").hide();
-            $("#activity-btn-cancel").show(); 
-            //show cancel
-        }
+    else if (activityStatus === "Bevestigd"){
+        $("#activity-btn-book").hide();
+        $("#activity-btn-requested").hide();
+        $("#activity-btn-cancel").hide();
+        $("#activity-btn-delete").show();
     }
+
     //Line style based upon Category
     if (activityCategory === "Zorg"){
         
@@ -216,7 +194,7 @@ app.Activity = (function () {
              
             var activityProvider = app.everlive.data('Activities');
             var activities = app.Activities.activities;
-            var activityId = $("#activity-id").html();
+            var activityId = $("#activity-id").val();
 
             var attrs = {
 
@@ -245,7 +223,7 @@ app.Activity = (function () {
              
             var activityProvider = app.everlive.data('Activities');
             var activities = app.Activities.activities;
-            var activityId = $("#activity-id").html();
+            var activityId = $("#activity-id").val();
             var attrs = {
 
                 Id: activityId,
@@ -304,7 +282,7 @@ app.Activity = (function () {
                         //app.alert(JSON.stringify(error));
             	    });
                  	//app.mobileApp.navigate('#:back');
-                	app.mobileApp.navigate('views/bookingsView.html');
+                	app.mobileApp.navigate('views/myBookingsView.html');
 
                 },
                 function(error) {
@@ -316,7 +294,7 @@ app.Activity = (function () {
              
             var activityProvider = app.everlive.data('Activities');
             var activities = app.Activities.activities;
-            var activityId = $("#activity-id").html();
+            var activityId = $("#activity-id").val();
             var attrs = {
 
                 Id: activityId,
@@ -432,7 +410,7 @@ app.Activity = (function () {
              
             var activityProvider = app.everlive.data('Activities');
             var activities = app.Activities.activities;
-            var activityId = $("#activity-id").html();
+            var activityId = $("#activity-id").val();
             var attrs = {
 
                 Id: activityId,
@@ -491,7 +469,7 @@ app.Activity = (function () {
                         //app.alert(JSON.stringify(error));
             	});
                  	//app.mobileApp.navigate('#:back');
-                	app.mobileApp.navigate('views/bookingsView.html');
+                	app.mobileApp.navigate('views/myBookingsView.html');
 
                 },
                 function(error) {

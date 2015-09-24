@@ -199,7 +199,17 @@ app.Activities = (function () {
         // Navigate to activityView When some activity is selected
         var activitySelected = function (e) {
 
-            app.mobileApp.navigate('views/activityView.html?uid=' + e.data.uid);
+             var currentUserType = app.Users.currentUser.data.UserType;
+    
+            if (currentUserType === "Vrijwilliger"){
+    
+                app.mobileApp.navigate('views/activityView.html?uid=' + e.data.uid);
+            }
+            else
+            { 
+    
+                app.mobileApp.navigate('views/myActivityView.html?uid=' + e.data.uid);
+            }
         };
 
         // Navigate to app home

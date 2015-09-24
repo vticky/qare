@@ -1,134 +1,137 @@
 <div data-role="view" id="share" data-layout="default" data-transition="overlay:down" class="add-activity-view"
-    data-init="app.AddActivity.init" data-show="app.AddActivity.show" data-model="app.AddActivity" data-stretch="true">
+     data-init="app.AddActivity.init" data-show="app.AddActivity.show" data-model="app.AddActivity" >
     <div data-role="header">
         <div data-role="navbar">
-           <div class="nav-logo"><img src="styles/images/logo_small.png" /></div>
-            
-            <div class="qare-span-filterdialog">
-            	<span>Aanmelden</span>
+            <div class="nav-logo">
+                <img src="styles/images/logo_small.png" />
             </div>
-           <span data-role="touch">
-            	<a class="nav-button" data-align="right" data-role="backbutton">X</a>
+
+            <div class="qare-span-filterdialog">
+                <span>Aanmelden</span>
+            </div>
+            <span data-role="touch">
+                <a class="nav-button" data-align="right" data-role="backbutton">X</a>
             </span>
         </div>
     </div>
+
     <!-- check input types http://www.w3schools.com/html/html_form_input_types.asp -->
     <div id="addActivity" class="add-activity-form-view">
+
         <form id="Qare-signUp">
+             <div>
+                        <label class="add-activity-form-label">Location</label>
+                        <div id="map_canvas1" style="width: 100%; height: 100%; position: absolute;"></div>
+                    </div>
             <ul class="form-content" data-role="listview" data-style="inset">
                 <!--<li>
-                    <label class="add-activity-form-label">Kies een profiel
-                        <select id="newProfile" data-role="dropdownlist">
-                            <option value="TODO!!"></option>
-                        </select>
-                    </label>
-                </li>-->              
+                <label class="add-activity-form-label">Kies een profiel
+                <select id="newProfile" data-role="dropdownlist">
+                <option value="TODO!!"></option>
+                </select>
+                </label>
+                </li>-->
                 <li>
                     <label class="add-activity-form-label">Titel</label>
                     <input id="newText" type="text" required>
                 </li>
                 <li>
                     <label class="add-activity-form-label">Stad</label>
-                        <select id="newCity" data-role="dropdownlist" required>
-                            <option value="">Selecteer een woonplaats</option>
-                            <option value="Amsterdam">Amsterdam</option>
-                            <option value="Rotterdam">Rotterdam</option>
-                            <option value="Den Haag">Den Haag</option>
-                            <option value="Utrecht">Utrecht</option>
-                        </select>
-                    
+                    <select id="newCity" data-role="dropdownlist" required>
+                        <option value="">Selecteer een woonplaats</option>
+                        <option value="Amsterdam">Amsterdam</option>
+                        <option value="Rotterdam">Rotterdam</option>
+                        <option value="Den Haag">Den Haag</option>
+                        <option value="Utrecht">Utrecht</option>
+                    </select>
+
                 </li>
-                <li>
-                     <label class="add-activity-form-label">Location</label>
-                    <div id="map_canvas1" style="width: 30%; height: 30%; position: relative;"></div>
-                        
-                    
-                </li>
+                
                 <li>
                     <label class="add-activity-form-label">Datum</label>
-                        <input id="newDate" type="date" required>
+                    <input id="newDate" type="date" required>
                 </li>
                 <li>
                     <label class="add-activity-form-label">Tijd (Aanvang)</label>
-                        <select id="newStartTime" data-role="dropdownlist" required>
-                            <option value="">Start tijd</option>
-                            <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                        </select> - 
-                        <select id="newEndTime" data-role="dropdownlist" required>
-                            <option value="">Eind tijd</option>
-                            <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                        </select>
+                    <select id="newStartTime" data-role="dropdownlist" required>
+                        <option value="">Start tijd</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                    </select> 
+                    <select id="newEndTime" data-role="dropdownlist" required>
+                        <option value="">Eind tijd</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                    </select>
                 </li>
                 <li>
                     <label class="add-activity-form-label">Category</label>
-                        <select id="newCategory" data-role="dropdownlist" required>
-                            <option value="" selected>Selecteer een categorie</option>
-                            <option value="Zorg">Zorg</option>
-                            <option value="Gezelschap">Gezelschap</option>
-                            <option value="Huisdieren">Huisdieren</option>
-                            <option value="Huishoudelijk">Huishoudelijk</option>
-                        </select>
+                    <select id="newCategory" data-role="dropdownlist" required>
+                        <option value="" selected>Selecteer een categorie</option>
+                        <option value="Zorg">Zorg</option>
+                        <option value="Gezelschap">Gezelschap</option>
+                        <option value="Huisdieren">Huisdieren</option>
+                        <option value="Huishoudelijk">Huishoudelijk</option>
+                    </select>
                 </li>
                 <li>
                     <label class="add-activity-form-label">Aantal plekken</label>
-                        <select id="newSeats" data-role="dropdownlist">
-                            <option value="" selected>Selecteer aan beschikbare plekken</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                </li>                 
+                    <select id="newSeats" data-role="dropdownlist">
+                        <option value="" selected>Selecteer aan beschikbare plekken</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </li>
                 <li>
                     <label class="add-activity-form-label">Omschrijving</label>
-                        <textarea id="newDescription" placeholder="omschrijving" required></textarea>
-                </li> 
+                    <textarea id="newDescription" placeholder="omschrijving" required></textarea>
+                </li>
             </ul>
-            
+
             <p>
                 <span data-role="touch">
-                	<a class="qare-btn" data-role="button" data-bind="events: { click: save}">Toevoegen</a>
+                    <a class="qare-btn" data-role="button" data-bind="events: { click: save}">Toevoegen</a>
                 </span>
             </p>
             <p>
                 <span data-role="touch">
-                	<a class="qare-btn" data-role="button" data-bind="events: { click: cancel }">Annuleer</a>
+                    <a class="qare-btn" data-role="button" data-bind="events: { click: cancel }">Annuleer</a>
                 </span>
             </p>
         </form>

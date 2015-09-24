@@ -18,6 +18,7 @@ app.AddActivity = (function () {
         var $newCategory;
         //TODO: Location
         var validator;
+        var $mapElement;
         
         var init = function () {
             validator = $('#addActivity').kendoValidator().data('kendoValidator');
@@ -32,6 +33,11 @@ app.AddActivity = (function () {
             $newCategory = $('#newCategory');
             console.log($newDate.val());            
             $newDescription.on('keydown', app.helper.autoSizeTextarea);
+            $mapElement = $('#map_canvas1');
+            navigator.geolocation.getCurrentPosition(
+                onSuccessShowMap,
+                onErrorShowMap
+                );
         };
         
         var show = function () {
@@ -48,10 +54,7 @@ app.AddActivity = (function () {
             
             validator.hideMessages();
             $newDescription.prop('rows', 5);
-            navigator.geolocation.getCurrentPosition(
-                onSuccessShowMap,
-                onErrorShowMap
-                );
+            
         };
         function onSuccessShowMap(position) {
             var latlng = new google.maps.LatLng(
@@ -70,21 +73,22 @@ app.AddActivity = (function () {
                 mapTypeControl: true,
     
             };
-            
-            //var map = new google.maps.Map(
-            //    $('#map_canvas1'),
-            //    mapOptions
-            //    );
+            console.log(document.getElementById('map_canvas1'));
+            var map = new google.maps.Map(
+                $mapElement,
+                mapOptions
+                );
     
-            //var marker = new google.maps.Marker({
-              //                                      position: latlng,
-                //                                    map: map
-                  //                              });
+            var marker = new google.maps.Marker({
+                                                    position: latlng,
+                                                    map: map
+                                                });
         
-            //console.log(marker);
+            console.log(marker);
             console.log("map rendering");
         };
         function onErrorShowMap(error) {
+             console.log(error);
             alert("error");
         };
         

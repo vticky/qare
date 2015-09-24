@@ -4,7 +4,7 @@
 var app = app || {};
 
 app.showMap = (function(position) {
-    
+   
     var latlng = new google.maps.LatLng(
     position.coords.latitude,
     position.coords.longitude);
@@ -23,7 +23,7 @@ app.showMap = (function(position) {
     };
 
     var map = new google.maps.Map(
-    $('#map_canvas'),
+    $('#map'),
     mapOptions
     );
 
@@ -163,6 +163,7 @@ app.myActivitiesAfterShow = (function () {
 app.activitiesReload = (function () { 
     
     //var groupValue = $(".km-text").html();
+    console.log("activities reload");
     
     $('span.activity-category:contains("Gezelschap")').each(function () {
     	
@@ -214,9 +215,10 @@ app.activitiesReload = (function () {
     // app.Activities.activities.group(
     //     { field: "formattedActivityDate" })
     console.log("activities reloaded " +  app.Activities.activities);
+    navigator.geolocation.getCurrentPosition(app.showMap);
 });
 app.init = (function () {
-    
+     console.log("activities init");
     $('span.activity-category:contains("Gezelschap")').each(function () {
     	//alert("Gezelschap");
         $("#activity-category").removeClass("activity-category");
@@ -224,7 +226,8 @@ app.init = (function () {
     
     kendo.bind($("input[type='checkbox']"), app.filters);
     kendo.bind($("input[type='radio']"), app.filters);
-    console.log("activities init");
+   
+     
 });
 app.filters = kendo.observable({
     categories: ["Zorg"],
@@ -442,8 +445,8 @@ app.Activities = (function () {
             },
             filter: {field: "ActivityDate", operator: "gt", value: new Date()},
             group: { field: "ActivityDate", operator: "gt", value: new Date()},
-            sort: { field: "ActivityDate", dir: 'asc', operator: "gt", value: new Date() }//,
-            //filter: [{field: "Status", operator: "eq", value: "Toegevoegd" }]//,
+            sort: { field: "ActivityDate", dir: 'asc', operator: "gt", value: new Date() },
+            filter: [{field: "Status", operator: "eq", value: "Toegevoegd" }]//,
             //{field: "Status", operator: "eq", value: "Aangevraagd"}
                      //{field: "Status", operator: "neq", value: "Bevestigd" }]
         });
@@ -462,10 +465,13 @@ app.Activities = (function () {
             var currentUserType = app.Users.currentUser.data.UserType;
     
             if (currentUserType === "Vrijwilliger"){
+    
                 app.mobileApp.navigate('views/activityView.html?uid=' + e.data.uid);
             }
             else
-            {   app.mobileApp.navigate('views/myActivityView.html?uid=' + e.data.uid);
+            { 
+    
+                app.mobileApp.navigate('views/myActivityView.html?uid=' + e.data.uid);
             }
             
         };

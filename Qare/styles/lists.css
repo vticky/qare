@@ -77,13 +77,15 @@
 }
 #qareApp .activity-btn-left {
 	width: 50%;
-    display: table-cell;
+    float:left;
+    display: block;
     padding:2;
     margin:0;
 }
 #qareApp .activity-btn-right {
 	width: 50%;
-    display: table-cell;
+    float:left;
+    display: block;
     padding:2;
     margin:0;
 }
@@ -137,6 +139,11 @@
     color:#32A1A9;
     background-color: transparent;
     font-size: 1.0rem;
+}
+
+#qareApp .edit-activity:after, #qareApp .edit-activity:before
+{
+     content:"\e30a";   
 }
 #qareApp #activity-category-border {
     border: 0;
@@ -199,16 +206,28 @@
 }
 #qareApp .activity-btn-requested {
     display: block;
-    background: #7F8182;
+    background: #32A1A9;
     color:#fff;   
     font-family:Helvetica Neue;
     border-radius: 2px;
     font-weight:normal;
     font-size: 1rem;
 }
-/*#qareApp .activity-btn-requested:after {
+.activity-btn-requested:before {
+    content: '✓';
+}
+#qareApp .activity-btn-decline {
+    display: block;
+    background: gray;
+    color:#fff;   
+    font-family:Helvetica Neue;
+    border-radius: 2px;
+    font-weight:normal;
+    font-size: 1rem;
+}
+.activity-btn-decline:before {
     content:'X';
-}*/
+}
 #qareApp .activity-btn-confirmed {
     display: block;
     background: #fff;
@@ -218,6 +237,19 @@
     font-weight:normal;
     font-size: 1rem;
 }
+.activity-content .book .Bevestigd
+{
+    content: '✓';
+}
+.activity-content .book .Aangevraagd
+{
+    content: 'recents';
+}
+.activity-content .book .Toegevoegd
+{
+    content: 'X';
+}
+
 #qareApp .activity-btn-confirmed:before {
     content: '✓';
 }

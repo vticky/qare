@@ -101,6 +101,11 @@ position: relative;
     background-color:#fff;
     
 }
+
+#qareApp .qare-span-provider-login bottom{
+   margin-bottom:50px;
+}
+
 #qareApp .qare-close-login,
 #qareApp .qare-close-filterdialog{
 
