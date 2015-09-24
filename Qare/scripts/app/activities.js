@@ -22,17 +22,17 @@ app.showMap = (function(position) {
 
     };
 
-    //var map = new google.maps.Map(
-    //$('#map'),
-    //mapOptions
-    //);
+    var map = new google.maps.Map(
+    $('#map'),
+    mapOptions
+    );
 
-    //var marker = new google.maps.Marker({
-    //	position: latlng,
-    //	map: map
-    //});
-	//	console.log(marker);
-	//	console.log("map rendering");
+    var marker = new google.maps.Marker({
+    	position: latlng,
+    	map: map
+    });
+		console.log(marker);
+		console.log("map rendering");
 
  
 
@@ -163,7 +163,7 @@ app.myActivitiesAfterShow = (function () {
 app.activitiesReload = (function () { 
     
     //var groupValue = $(".km-text").html();
-    console.log("activities reload");
+   
     
     $('span.activity-category:contains("Gezelschap")').each(function () {
     	
@@ -215,7 +215,7 @@ app.activitiesReload = (function () {
     // app.Activities.activities.group(
     //     { field: "formattedActivityDate" })
     console.log("activities reloaded " +  app.Activities.activities);
-//    navigator.geolocation.getCurrentPosition(app.showMap);
+    
 });
 app.init = (function () {
      console.log("activities init");

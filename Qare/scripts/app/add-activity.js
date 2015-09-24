@@ -11,6 +11,8 @@ app.AddActivity = (function () {
         var $newText;
         var $newDescription;
         var $newCity;
+        var $newAddress;
+        var $newZip;
         var $newDate;
         var $newStartTime;
         var $newEndTime;
@@ -18,7 +20,7 @@ app.AddActivity = (function () {
         var $newCategory;
         //TODO: Location
         var validator;
-        var $mapElement;
+       
         
         var init = function () {
             validator = $('#addActivity').kendoValidator().data('kendoValidator');
@@ -26,6 +28,8 @@ app.AddActivity = (function () {
             $newText = $('#newText');
             $newDescription = $('#newDescription');
             $newCity = $('#newCity');
+            $newAddress = $('#newAddress');
+            $newZip = $('#newZip');
             $newDate = $('#newDate');
             $newStartTime = $('#newStartTime');
             $newEndTime = $('#newEndTime');
@@ -33,11 +37,8 @@ app.AddActivity = (function () {
             $newCategory = $('#newCategory');
             console.log($newDate.val());            
             $newDescription.on('keydown', app.helper.autoSizeTextarea);
-            $mapElement = $('#map_canvas1');
-            navigator.geolocation.getCurrentPosition(
-                onSuccessShowMap,
-                onErrorShowMap
-                );
+            
+            
         };
         
         var show = function () {
@@ -45,6 +46,8 @@ app.AddActivity = (function () {
             $newText.val('');
             $newDescription.val('');
             $newCity.val('');
+            $newAddress.val('');
+            $newZip.val('');
             console.log($newDate.val());
          //   $newDate.val(new Date());//todo: set todays date, fix picker
             $newStartTime.val('');
@@ -56,45 +59,14 @@ app.AddActivity = (function () {
             $newDescription.prop('rows', 5);
             
         };
-        function onSuccessShowMap(position) {
-            var latlng = new google.maps.LatLng(
-                position.coords.latitude,
-                position.coords.longitude);
-   
-            var mapOptions = {
-                    
-                sensor: true,
-                center: latlng,
-                panControl: false,
-                zoomControl: true,
-                zoom: 16,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                streetViewControl: false,
-                mapTypeControl: true,
-    
-            };
-            console.log(document.getElementById('map_canvas1'));
-            var map = new google.maps.Map(
-                $mapElement,
-                mapOptions
-                );
-    
-            var marker = new google.maps.Marker({
-                                                    position: latlng,
-                                                    map: map
-                                                });
         
-            console.log(marker);
-            console.log("map rendering");
-        };
-        function onErrorShowMap(error) {
-             console.log(error);
-            alert("error");
-        };
         
         var cancel = function() {
             app.mobileApp.navigate('#views/myActivitiesView.html', 'fade');
         };
+        var location = function(){
+             app.mobileApp.navigate('#views/kendoMapView.html?city='+$newCity.val()+'&address='+$newAddress.val(), 'fade');
+        }
         
         var saveActivity = function () {
             // Validating of the required fields
@@ -105,6 +77,8 @@ app.AddActivity = (function () {
                 activity.Text = $newText.val();
                 activity.Description = $newDescription.val();
                 activity.City = $newCity.val();
+                activity.Address = $newAddress.val();
+                activity.PostalCode = $newZip.val();
                 console.log($newDate.val());
                 activity.ActivityDate = $newDate.val();
                 var day = new Date(activity.ActivityDate).getDay();
@@ -153,7 +127,8 @@ app.AddActivity = (function () {
             show: show,
             me: app.Users.currentUser,
             save: saveActivity,
-            cancel: cancel
+            cancel: cancel,
+            location: location
         };
     }());
     

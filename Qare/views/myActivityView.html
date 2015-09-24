@@ -2,10 +2,10 @@
     data-init="app.Activity.init" data-show="app.Activity.show" data-after-show="app.statusBtn">
     <div data-role="header">
         <div data-role="navbar">
-             Informatie
+             Informatie my
             <a class="nav-button nav-button-icon nav-button-back" data-align="left" data-role="backbutton"></a>
 			<!--<a class="nav-button nav-button-icon nav-button-delete hide-text" data-align="right" data-role="button" data-bind="visible: isVisible" data-click="app.Activity.remove">Delete</a>-->
-            <a class="nav-button edit-activity" data-align="right" data-role="button" onclick="window.location.replace('#views/kendoMapView.html?uid='+app.Activity.activityId());"></a>
+            <a class="nav-button edit-activity" data-align="right" data-icon="globe" data-role="button" onclick="window.location.replace('#views/kendoMapView.html?city='+app.Activity.activity().City + '&address='+app.Activity.activity().Address);"></a>
         </div>
     </div>
     <div id="activity-main-container" class="activity-main-container">
