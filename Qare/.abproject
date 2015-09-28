@@ -6,7 +6,7 @@
   "DisplayName": "QARE Hybrid",
   "Author": "Tony den Doop",
   "Description": "QARE v3 Hybrid",
-  "BundleVersion": "1.0.1",
+  "BundleVersion": "1.0.4",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",
