@@ -59,12 +59,16 @@
         <hr class="activity-divide-line"/>
         <div class="activity-wrapper">
         	<div class="activity-left">
-        		<label>Plaats:</label> 
+        		<label>Plaats:</label>
                 <b>
-                <span class="clickable" data-bind="text: City" onclick="window.location.replace('#views/kendoMapView.html?city='+app.Activity.activity().City + '&address='+app.Activity.activity().Address);"></span>
-                <label id="Address">,<span data-bind="text: PostalCode"></span>, 
-                <span data-bind="text: Address"></span></label></b>
+                    <span class="clickable" data-bind="text: City" onclick="window.location.replace('#views/kendoMapView.html?city='+app.Activity.activity().City + '&address='+app.Activity.activity().Address);"></span>
+                    <span id="distance"></span>
+                </b>
         	</div>
+            <div class="activity-right">
+        		<label>Adres:</label> <b><span data-bind="text: PostalCode"></span> - 
+                        <span data-bind="text: Address"></span></b>
+        	</div>            
         </div>
         <hr class="activity-divide-line"/>
         <div class="activity-wrapper">
@@ -72,8 +76,8 @@
         		<label>Datum:</label> <b><span data-bind="text: ActivityDateFormatted"></span></b>
         	</div>
         	<div class="activity-right">
-        		<label>Tijd:</label> <b><span data-bind="text: ActivityStartTime"></span>:00 - 
-                        <span data-bind="text: ActivityEndTime"></span>:00</b>
+        		<label>Tijd:</label> <b><span data-bind="text: ActivityStartTime"></span> - 
+                        <span data-bind="text: ActivityEndTime"></span></b>
         	</div>            
         </div>
         <hr class="activity-divide-line"/>
