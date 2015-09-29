@@ -4,7 +4,7 @@
 
 var app = app || {};
 
-app.statusBtn = (function () {
+app.statusBtn = (function (e) {
     
     var currentUserId = app.Users.currentUser.data.Id;
     var createdById = $("#activity-createdby").val();
@@ -14,7 +14,9 @@ app.statusBtn = (function () {
     var activityBorderGezelschap = $(".activity-category-border-Gezelschap"); 
     var activityBorderHuishoudelijk = $(".activity-category-border-Huishoudelijk"); 
     var activityBorderHuisdieren = $(".activity-category-border-Huisdieren");
-    
+    activityUid = e.view.params.uid;
+    activity = app.Activities.activities.getByUid(activityUid);
+  
     
     $("#activity-btn-requested").hide();
     $("#activity-btn-book").hide();
@@ -23,29 +25,32 @@ app.statusBtn = (function () {
     $("#activity-status-book").hide();
     $("#activity-status-confirmed").hide();        
     
-    //Show buttons based upon Current User
-   
-    if (activityStatus === "Toegevoegd"){
-        $("#activity-btn-book").hide();
-        $("#activity-btn-requested").hide();
-        $("#activity-btn-decline").hide();
-        $("#activity-btn-cancel").hide();
-        $("#activity-btn-delete").show();
-    } 
-    else if (activityStatus === "Aangevraagd"){
-        $("#activity-btn-requested").show();
-        $("#activity-btn-decline").show();
-        $("#activity-btn-cancel").show(); 
-        $("#activity-btn-book").hide();
-        $("#activity-btn-delete").show();
-    }
-    else if (activityStatus === "Bevestigd"){
-        $("#activity-btn-book").hide();
-        $("#activity-btn-requested").hide();
-        $("#activity-btn-cancel").hide();
-        $("#activity-btn-delete").show();
-    }
+    if(activity.ActivityDate >= new Date())
+    {
 
+        //Show buttons based upon Current User
+
+        if (activityStatus === "Toegevoegd"){
+            $("#activity-btn-book").hide();
+            $("#activity-btn-requested").hide();
+            $("#activity-btn-decline").hide();
+            $("#activity-btn-cancel").hide();
+            $("#activity-btn-delete").show();
+        } 
+        else if (activityStatus === "Aangevraagd"){
+            $("#activity-btn-requested").show();
+            $("#activity-btn-decline").show();
+            $("#activity-btn-cancel").show(); 
+            $("#activity-btn-book").hide();
+            $("#activity-btn-delete").show();
+        }
+        else if (activityStatus === "Bevestigd"){
+            $("#activity-btn-book").hide();
+            $("#activity-btn-requested").hide();
+            $("#activity-btn-cancel").hide();
+            $("#activity-btn-delete").show();
+        }
+    }
     //Line style based upon Category
     if (activityCategory === "Zorg"){
         

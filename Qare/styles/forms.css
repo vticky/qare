@@ -42,37 +42,6 @@
     
 }
 #qareApp .qare-bookings-btn-left {
-position: relative;
-  margin: 0;
-  margin-right: 10px;
-  margin-left: -6px;
-  margin-top: 3px;    
-  padding: .5em 0;
-  border: 0;
-  color: #fff;
-  font-size: 0.9rem;
-  background-color: #32A1A9;
-  display: block;
-  text-align: center;
-  border: 1px #32A1A9 solid;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;    
-  
-}
-#qareApp .qare-bookings-btn-left:active, #qareApp .qare-bookings-btn-left.active {
-
-  color: #32A1A9;
-  background-color: #DAF0F2;
-   
-}
-#qareApp .qare-bookings-btn-right:active, #qareApp .qare-bookings-btn-right.active {
-
-  color: #32A1A9;
-  background-color: #DAF0F2;
-   
-}
-#qareApp .qare-bookings-btn-right {
-
   position: relative;
   margin: 0;
   margin-right: 10px;
@@ -80,9 +49,34 @@ position: relative;
   margin-top: 3px;    
   padding: .5em 0;
   border: 0;
-  color: #fff;
   font-size: 0.9rem;
+  display: block;
+  text-align: center;
+  border: 1px #32A1A9 solid;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;    
+  color: #32A1A9;
+  background-color: #DAF0F2;
+}
+#qareApp .qare-bookings-btn-left:active, #qareApp .qare-bookings-btn-left.active {
+  color: #fff;
   background-color: #32A1A9;
+}
+#qareApp .qare-bookings-btn-right:active, #qareApp .qare-bookings-btn-right.active {
+  color: #fff;
+  background-color: #32A1A9;
+}
+#qareApp .qare-bookings-btn-right {
+  position: relative;
+  margin: 0;
+  margin-right: 10px;
+  margin-left: -6px;
+  margin-top: 3px;    
+  padding: .5em 0;
+  border: 0;
+  color: #32A1A9;
+  font-size: 0.9rem;
+  background-color: #DAF0F2;
   display: block;
   text-align: center;
   border: 1px #32A1A9 solid;

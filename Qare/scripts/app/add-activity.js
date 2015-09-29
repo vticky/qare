@@ -81,7 +81,13 @@ app.AddActivity = (function () {
                 activity.PostalCode = $newZip.val();
                 console.log($newDate.val());
                 activity.ActivityDate = $newDate.val();
-                var day = new Date(activity.ActivityDate).getDay();
+                
+                var dateObj = new Date(activity.ActivityDate);
+                var day = dateObj.getDay();
+                var month = dateObj.getUTCMonth() + 1; //months from 1-12
+				var date = dateObj.getUTCDate();
+				var year = dateObj.getUTCFullYear();
+                activity.ActivityDate = new Date(year, month, date, $newStartTime.val(), 0, 0, 0);
                 
                 if(day == 1)
                 activity.DayInWeek = "monday";

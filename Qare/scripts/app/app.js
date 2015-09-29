@@ -1,5 +1,5 @@
 function onPushNotificationReceived(e) {
-    //alert(JSON.stringify(e));
+    alert(JSON.stringify(e));
 }
 //kendo.culture("nl-NL");
 
@@ -72,7 +72,7 @@ var app = (function (win) {
          // Initialize Everlive SDK
     	var el = new Everlive(everliveOptions);
         //TODO check this (Tijana)
-       /* var devicePushSettings = {
+       var devicePushSettings = {
                 iOS: {
                     badge: 'true',
                     sound: 'true',
@@ -82,25 +82,25 @@ var app = (function (win) {
                     projectNumber: 'YOUR_GOOGLE_API_PROJECT_NUMBER'
                 },
                 wp8: {
-                    channelName: 'EverlivePushChannel'
+                    channelName: 'tijana'//'EverlivePushChannel'
                 },
                 notificationCallbackIOS: onPushNotificationReceived,
                 notificationCallbackAndroid: onPushNotificationReceived,
                 notificationCallbackWP8: onPushNotificationReceived
-            };*/
+            };
         
-       /* el.push.register(devicePushSettings, function() {
-                //alert("Successful registration in Backend Services. You are ready to receive push notifications.");
+        el.push.register(devicePushSettings, function() {
+                alert("Successful registration in Backend Services. You are ready to receive push notifications.");
             }, function(err) {
-                //alert("Error: " + err.message);
-            });   */
+                alert("Error: " + err.message);
+            });   
         
         //END -- to enable PushPlugin
         
         // Handle "backbutton" event
-        //document.addEventListener('backbutton', onBackKeyDown, false);
+        document.addEventListener('backbutton', onBackKeyDown, false);
 
-        //navigator.splashscreen.hide();
+        navigator.splashscreen.hide();
 
         if (analytics.isAnalytics()) {
             analytics.Start();
