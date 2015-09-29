@@ -354,8 +354,8 @@ input[type='week'] {
 }
 
 #qareApp .app-name {
-  width: 221px;
-  height: 297px;
+  width: 144px;
+  height: 194px;
   margin: 1em auto;
   text-indent: -9999px;
   /*background: transparent url(images/logo-friends.png) no-repeat 0 0;*/
@@ -837,4 +837,9 @@ input[type='week'] {
         content: 'X';
     }    
  
+}
+.clickable
+{
+    color: #32A1A9;
+    cursor: pointer;
 }

@@ -362,6 +362,18 @@ app.Activities = (function () {
                 Likes: {
                     field: 'Likes',
                     defaultValue: []
+                },
+                City: {
+                    field: 'City',
+                    defaultValue: null
+                },
+                Address: {
+                    field: 'Address',
+                    defaultValue: null
+                },
+                PostalCode: {
+                    field: 'PostalCode',
+                    defaultValue: null
                 }
             },
             CreatedAtFormatted: function () {

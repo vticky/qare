@@ -39,6 +39,7 @@
     }
     function onSuccessShowMap(position) {
         var latlng;
+    
         geocoder = new google.maps.Geocoder();
         if (activity === undefined) {
             latlng = new google.maps.LatLng(
@@ -98,11 +99,28 @@
                                      }
                                  } else {
                                      console.log("Geocode was not successful for the following reason: " + status);
+                                     document.getElementById("map_canvas").innerHTML = "Ingevoerde locatie is onbekend";
                                  }
                              });
         }
     }
     function onErrorShowMap(error) {
-        alert("error");
+        switch
+        (err.code) {
+            case
+                err.PERMISSION_DENIED:
+                document.getElementById("map_canvas").innerHTML = "Kan de huidige positie niet . Ofwel GPS-signalen zwak of de GPS is uitgeschakeld";
+    
+            case
+                err.POSITION_UNAVAILABLE:
+                document.getElementById("map_canvas").innerHTML = "Kan de huidige positie niet . Ofwel GPS-signalen zwak of de GPS is uitgeschakeld";
+            case
+                err.TIMEOUT:
+                document.getElementById("map_canvas").innerHTML = "Kan de huidige positie niet . Ofwel GPS-signalen zwak of de GPS is uitgeschakeld";
+            case
+                err.UNKNOWN_ERROR:
+                document.getElementById("map_canvas").innerHTML = "Kan de huidige positie niet . Ofwel GPS-signalen zwak of de GPS is uitgeschakeld";
+                break
+        }
     }
 </script>
