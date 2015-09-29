@@ -204,8 +204,12 @@ app.Activity = (function () {
                     currLoc = results[0].geometry.location;
                     var latitude = currLoc.lat();
                     var longitude = currLoc.lng();
+                    
+                      
+                    
                     navigator.geolocation.getCurrentPosition(function(position) {
-                        distanceFromCurrent(position.coords.latitude, position.coords.latitude, latitude, longitude);
+                        
+                        distanceFromCurrent(position.coords.latitude, position.coords.longitude, latitude, longitude);
                     });
                 } else {
                     alert("Google Maps had some trouble finding" + address + status);
@@ -548,7 +552,7 @@ function encodeAddress(address) {
 
 function distanceFromCurrent(currLatitude, currLongitude, latitude, longitude) {  
     var output = document.getElementById("distance");
-    var currLat = currLatitude;
+    /*var currLat = currLatitude;
     var currLon = currLongitude;
                        
     var pointLat = parseFloat(latitude);
@@ -564,8 +568,18 @@ function distanceFromCurrent(currLatitude, currLongitude, latitude, longitude) {
     var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(currLat) * Math.cos(pointLat);
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));   //must use atan2 as simple arctan cannot differentiate 1/1 and -1/-1
     var distance = R * c;   //sets the distance
-                    
-    distance = Math.round(distance * 10) / 10;      //rounds number to closest 0.1 km
+            
+    distance = Math.round(distance * 10) / 10;      //rounds number to closest 0.1 km*/
+    var R = 6371; // Radius of the earth in km
+  var dLat = (latitude-currLatitude).toRad();  // Javascript functions in radians
+  var dLon = (longitude-currLongitude).toRad(); 
+  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.cos(currLatitude.toRad()) * Math.cos(latitude.toRad()) * 
+          Math.sin(dLon/2) * Math.sin(dLon/2); 
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  var distance = R * c; // Distance in km
+    distance = Math.round(distance * 10) / 10; 
+    
     output.innerHTML = '<p>Distance is ' + distance + 'km </p>';
 }
 Number.prototype.toRad = function() 
