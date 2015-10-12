@@ -39,7 +39,7 @@
     <footer data-role="footer">
         <div data-role="tabstrip" id="navigation-container"> 
             <a onclick="window.location.replace('#views/myActivitiesView.html');" id="provider-activities" data-icon="organize">Aanbod</a>
-            <a style="color: #32A1A9" onclick="window.location.replace('#views/myBookingsView.html');" id="provider-bookings" data-icon="bookmarks">Boekingen</a>
+            <a style="color: #32A1A9"  class="menu-active" onclick="window.location.replace('#views/myBookingsView.html');" id="provider-bookings" data-icon="bookmarks">Boekingen</a>
             <!--<a onclick="window.location.replace('#views/profilesView.html');" id="provider-profiles" data-icon="mostviewed">Profielen</a>-->
             <a onclick="window.location.replace('#views/providerMyProfileView.html');" id="provider-myprofile" data-icon="contacts">Profiel</a>
         </div>
@@ -54,10 +54,12 @@
         <div class="user-avatar">
             <img data-bind="attr:{src: User().PictureUrl}" alt="#: User().Name #">
         </div>
-        <div class="activity-content book #:Status #">
+        <div class="activity-content book ">
             <h2 class="activity-title">#: Text #</h2>
-            <div data-bind="visible: Picture">
-                <img id="picture" class="picture" data-bind="attr:{src: PictureUrl()}" width="100%">
+            <div >
+             <div>
+                <div class="activityStatus #: Status #" height="40px" width="40px"></div>
+            </div>
             </div>
             <span class="main-span">#: City # (0.0 km)</span><br/>
             <span class="main-span">#: ActivityStartTime # uur</span> - 

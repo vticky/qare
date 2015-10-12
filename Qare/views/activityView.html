@@ -5,7 +5,7 @@
             Informatie
             <a class="nav-button nav-button-icon nav-button-back" data-align="left" data-role="backbutton"></a>
             <!--<a class="nav-button nav-button-icon nav-button-delete hide-text" data-align="right" data-role="button" data-bind="visible: isVisible" data-click="app.Activity.remove">Delete</a>-->
-            <a class="nav-button" data-align="right" data-role="button" data-icon="globe" onclick="window.location.replace('#views/kendoMapView.html?city=' + app.Activity.activity().City + '&address=' + app.Activity.activity().Address);"></a>
+            <a class="nav-button location-button" data-align="right" data-role="button" data-icon="globe" onclick="window.location.replace('#views/kendoMapView.html?city=' + app.Activity.activity().City + '&address=' + app.Activity.activity().Address);"></a>
         </div>
     </div>
     <div id="activity-main-container" class="activity-main-container">
@@ -193,8 +193,8 @@
     </div>
     <footer data-role="footer" data-position="fixed">
         <div data-role="tabstrip" id="navigation-container">
-            <a style="color: #32A1A9" data-role="button" onclick="window.location.replace('#views/activitiesView.html');" id="volunteer-activities" data-icon="organize">Aanbod</a>
-            <a style="display:none; color: #32A1A9" data-role="button" onclick="window.location.replace('#views/myActivitiesView.html');" id="provider-activities" data-icon="organize">Aanbod</a>
+            <a style="color: #32A1A9" class="menu-active" data-role="button" onclick="window.location.replace('#views/activitiesView.html');" id="volunteer-activities" data-icon="organize">Aanbod</a>
+            <a style="display:none; color: #32A1A9" class="menu-active" data-role="button" onclick="window.location.replace('#views/myActivitiesView.html');" id="provider-activities" data-icon="organize">Aanbod</a>
             <a  data-role="button" onclick="window.location.replace('#views/bookingsView.html');" id="volunteer-bookings" data-icon="bookmarks">Boekingen</a>
             <a style="display:none" data-role="button" onclick="window.location.replace('#views/myBookingsView.html');" id="provider-bookings" data-icon="bookmarks">Boekingen</a>
             <a data-role="button"   onclick="window.location.replace('#views/favoritesView.html');" id="volunteer-favorites" data-icon="favorites">Favorieten</a>

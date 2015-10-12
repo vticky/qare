@@ -143,7 +143,7 @@
 
 #qareApp .edit-activity:after, #qareApp .edit-activity:before
 {
-     content:"\e30a";   
+ /*    content:"\e30a";   */
 }
 #qareApp #activity-category-border {
     border: 0;
@@ -274,7 +274,7 @@
 
 #qareApp .km-navbar .km-button[data-align="right"]
 {
-    margin-top: .2rem !important;
+    margin-top: -0.5 em !important;
 }
 
 #qareApp .km-flat .km-button

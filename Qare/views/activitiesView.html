@@ -17,7 +17,7 @@
             <!--<a class="nav-button" data-align="right" data-role="button" href="#views/kendoMapView.html">M</a>-->
             <!--<a class="nav-button" data-align="right" data-role="button" href="#views/imagesView.html">P</a>-->
         </div>
-        <div class="activities-fixed-group"></div>
+
     </div>
 
     <!-- Map -->
@@ -150,8 +150,8 @@
 
     <footer data-role="footer">
         <div data-role="tabstrip" id="navigation-container">
-            <a style="display:none; color: #32A1A9" data-role="button" onclick="window.location.replace('#views/activitiesView.html');" id="volunteer-activities" data-icon="organize">Aanbod</a>
-            <a style="display:none; color: #32A1A9" data-role="button" onclick="window.location.replace('#views/myActivitiesView.html');" id="provider-activities" data-icon="organize">Aanbod</a>
+            <a style="display:none; color: #32A1A9" class="menu-active" data-role="button" onclick="window.location.replace('#views/activitiesView.html');" id="volunteer-activities" data-icon="organize">Aanbod</a>
+            <a style="display:none; color: #32A1A9"  class="menu-active" data-role="button" onclick="window.location.replace('#views/myActivitiesView.html');" id="provider-activities" data-icon="organize">Aanbod</a>
             <a style="display:none" data-role="button" onclick="window.location.replace('#views/bookingsView.html');" id="volunteer-bookings" data-icon="bookmarks">Boekingen</a>
             <a style="display:none" data-role="button" onclick="window.location.replace('#views/myBookingsView.html');" id="provider-bookings" data-icon="bookmarks">Boekingen</a>
             <a style="display:none" data-role="button"   onclick="window.location.replace('#views/favoritesView.html');" id="volunteer-favorites" data-icon="favorites">Favorieten</a>
@@ -173,7 +173,7 @@
                 <h2 class="activity-title">#: Text #</h2>
                 <div data-bind="visible: Picture">
                     <!--<img id="picture" class="picture" data-bind="attr:{src: PictureUrl()}" width="100%">-->
-                    <img id="picture" class="picture" data-bind="attr:{src: PictureUrl()}" width="100%">
+                    <img id="picture" class="picture" data-bind="attr:{src: PictureUrl()}" height="40px" width="40px">
                 </div>
                 <span class="main-span">#: City # (0.0 km)</span><br/>
                 <span class="main-span">#: ActivityStartTime # uur</span> - <span class="main-span">#: ActivityEndTime # uur</span><br/>

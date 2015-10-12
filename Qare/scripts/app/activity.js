@@ -4,7 +4,7 @@
 
 var app = app || {};
 
-app.statusBtn = (function () {
+app.statusBtn = (function (e) {
     var currentUserId = app.Users.currentUser.data.Id;
     var createdById = $("#activity-createdby").val();
     var activityStatus = $("#activity-status").text();
@@ -13,7 +13,9 @@ app.statusBtn = (function () {
     var activityBorderGezelschap = $(".activity-category-border-Gezelschap"); 
     var activityBorderHuishoudelijk = $(".activity-category-border-Huishoudelijk"); 
     var activityBorderHuisdieren = $(".activity-category-border-Huisdieren");
-    
+    activityUid = e.view.params.uid;
+    activity = app.Activities.activities.getByUid(activityUid);
+  
     $("#activity-btn-requested").hide();
     $("#activity-btn-book").hide();
     $("#activity-btn-confirmed").hide();
@@ -21,50 +23,54 @@ app.statusBtn = (function () {
     $("#activity-status-book").hide();
     $("#activity-status-confirmed").hide();        
     
+    if(activity.ActivityDate >= new Date())
+    {
+
     //Show buttons based upon Current User
-    if (currentUserId === createdById) {	
-        if (activityStatus === "Toegevoegd") {
-            $("#activity-btn-book").hide();
-            $("#activity-btn-requested").hide();
-            $("#activity-btn-decline").hide();
-            $("#activity-btn-cancel").hide();
-        } else if (activityStatus === "Aangevraagd") {
-            $("#activity-btn-requested").show();
-            $("#activity-btn-decline").show();
-            $("#activity-btn-cancel").show(); 
-            $("#activity-btn-book").hide();
-        } else if (activityStatus === "Bevestigd") {
-            $("#activity-btn-book").hide();
-            $("#activity-btn-requested").hide();
-            $("#activity-btn-cancel").show();
+        if (currentUserId === createdById) {	
+            if (activityStatus === "Toegevoegd") {
+                $("#activity-btn-book").hide();
+                $("#activity-btn-requested").hide();
+                $("#activity-btn-decline").hide();
+                $("#activity-btn-cancel").hide();
+            } else if (activityStatus === "Aangevraagd") {
+                $("#activity-btn-requested").show();
+                $("#activity-btn-decline").show();
+                $("#activity-btn-cancel").show(); 
+                $("#activity-btn-book").hide();
+            } else if (activityStatus === "Bevestigd") {
+                $("#activity-btn-book").hide();
+                $("#activity-btn-requested").hide();
+                $("#activity-btn-cancel").show();
+            } else {
+                $("#activity-btn-book").hide();
+                $("#activity-btn-requested").hide();
+                $("#activity-btn-cancel").hide();
+            }
         } else {
-            $("#activity-btn-book").hide();
-            $("#activity-btn-requested").hide();
-            $("#activity-btn-cancel").hide();
+            //Show buttons based upon Activity Status
+            if (activityStatus === "Toegevoegd") {
+                $("#activity-btn-book").show();
+                $("#activity-btn-requested").hide();
+                $("#activity-btn-cancel").hide();
+                $("#Address").hide();
+            }
+            if (activityStatus === "Aangevraagd") {
+                $("#activity-btn-book").hide();
+                $("#activity-btn-requested").hide();
+                $("#activity-btn-cancel").show();
+                $("#Address").hide();
+                //show cancel
+            }
+            if (activityStatus === "Bevestigd") {
+                $("#activity-btn-book").hide();
+                $("#activity-btn-requested").hide();
+                $("#activity-btn-cancel").show(); 
+                $("#Address").show();
+                //show cancel
+            }
         }
-    } else {
-        //Show buttons based upon Activity Status
-        if (activityStatus === "Toegevoegd") {
-            $("#activity-btn-book").show();
-            $("#activity-btn-requested").hide();
-            $("#activity-btn-cancel").hide();
-            $("Address").hide();
         }
-        if (activityStatus === "Aangevraagd") {
-            $("#activity-btn-book").hide();
-            $("#activity-btn-requested").hide();
-            $("#activity-btn-cancel").show();
-            $("Address").hide();
-            //show cancel
-        }
-        if (activityStatus === "Bevestigd") {
-            $("#activity-btn-book").hide();
-            $("#activity-btn-requested").hide();
-            $("#activity-btn-cancel").show(); 
-            $("Address").show();
-            //show cancel
-        }
-    }
     //Line style based upon Category
     if (activityCategory === "Zorg") {
         activityBorderZorg.show();
@@ -239,12 +245,57 @@ app.Activity = (function () {
                                               alert("Activiteit is in behandeling!.");
                                               //alert(JSON.stringify(data));
                                               // Send e-mail - Push Mail
+                                               // PUSH NOTIFICATION
+                                              var el = app.everlive;
+
+                                              var activityTitle = $("#activity-title").html();
+
+                                              var notification = {
+                                                  "Android": {
+                                                      "data": {
+                                                              "title": "QARE (Android)",
+                                                              "message": "Activiteit" + " " + "'" + activityTitle + "'" + " " + "is in behandeling!",
+                                                              "customData": "Activiteit" + " " + "'" + activityTitle + "'" + " " + "is in behandeling!"
+                                                          }
+                                                  },
+                                                  "IOS": {
+                                                      "aps": {
+                                                              "alert": "Activiteit" + " " + "'" + activityTitle + "'" + " " + "is in behandeling!",
+                                                              "badge": 1,
+                                                              "sound": "default",
+                                                              "category": "QARE"
+                                                          },
+                                                      "customData": "Activiteit" + " " + "'" + activityTitle + "'" + " " + "is in behandeling!"
+                                                  },
+                                                  "WindowsPhone": {
+                                                      "Toast": {
+                                                              "Title": "QARE (Windows)",
+                                                              "Message": "Activiteit" + " " + "'" + activityTitle + "'" + " " + "is in behandeling!"
+                                                          }
+                                                  },
+                                                  "Windows": {
+                                                      "Toast": {
+                                                              "template": "ToastText01",
+                                                              "text": ["Push message for Windows 8+"]
+                                                          }
+                                                  }
+                                              };
+
+                                              el.push.notifications.create(notification,
+                                                                           function (data) {
+                                                                               //app.showAlert(JSON.stringify(data));
+                                                                           },
+                                                                           function (error) {
+                                                                               //app.alert(JSON.stringify(error));
+                                                                           });
+
                                               //app.mobileApp.navigate('#:back');
                                               app.mobileApp.navigate('views/bookingsView.html');
                                           },
                                           function(error) {
                                               alert(JSON.stringify(error));
                                           });
+             activities.sync();
         };
         
         var cancelActivity = function () {
@@ -313,6 +364,7 @@ app.Activity = (function () {
                                           function(error) {
                                               alert(JSON.stringify(error));
                                           });
+             activities.sync();
         };
         
         var declineActivity = function () {

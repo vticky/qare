@@ -44,14 +44,15 @@ app.bookingsAfterShow = (function () {
         logic: "and", 
         filters: [
         	{field: "UserId", operator: "eq", value: app.Users.currentUser.data.Id}, 
-            {field: "ActivityDate", operator: "gt", value: new Date()},
-            {
-                logic:"or",
-                filters: [
-                       {field: "Status", operator: "eq", value: "Aangevraagd"},
-                    {field: "Status", operator: "eq", value: "Bevestigd"}
-                ]
-            }
+            {field: "ActivityDate", operator: "gt", value: new Date()}//,
+                    //{
+              //  logic:"or",
+              //  filters: [
+              //        {field: "Status", operator: "eq", value: "Aangevraagd"},
+              //          {field: "Status", operator: "eq", value: "Bevestigd"}
+              //  ]
+           // }
+            
         ]});
 
     app.Activities.activities.group(
@@ -60,7 +61,10 @@ app.bookingsAfterShow = (function () {
 app.bookingsHistoryAfterShow = (function () {
     $(".qare-bookings-btn-left").removeClass("active");
     $(".qare-bookings-btn-right").addClass("active");
-    app.Activities.activities.filter({
+    var activityProvider = app.everlive.data('Activities');
+    var activities = app.Activities.activities;
+    
+    activities.filter({
         logic: "and", 
         filters: [
         	{field: "UserId", operator: "eq", value: app.Users.currentUser.data.Id}, 
@@ -69,7 +73,7 @@ app.bookingsHistoryAfterShow = (function () {
                 logic:"or",
                 filters: [
                        {field: "Status", operator: "eq", value: "Aangevraagd"},
-                        {field: "Status", operator: "eq", value: "Bevestigd"}
+                    {field: "Status", operator: "eq", value: "Bevestigd"}
                 ]
             }
         ]});
@@ -362,18 +366,6 @@ app.Activities = (function () {
                 Likes: {
                     field: 'Likes',
                     defaultValue: []
-                },
-                City: {
-                    field: 'City',
-                    defaultValue: null
-                },
-                Address: {
-                    field: 'Address',
-                    defaultValue: null
-                },
-                PostalCode: {
-                    field: 'PostalCode',
-                    defaultValue: null
                 }
             },
             CreatedAtFormatted: function () {
@@ -387,6 +379,29 @@ app.Activities = (function () {
             PictureUrl: function () {
 
                 return app.helper.resolvePictureUrl(this.get('Picture'));
+            },
+            ShowImage: function(){
+               var status = this.get('Picture');
+                if(status == "Toegevoegd")  
+                {
+                     return false;   
+                }
+                else
+                {
+                    return true;                    
+                }
+            },
+            StatusImage: function (){
+               var status = this.get('Picture');
+                if(status == "Aangevraagd")
+                {
+                     return '../styles/images/pendingicon.png';                    
+                }
+                else (status == "Bevestigd")
+                {
+                     return '../styles/images/acceptedicon.png';                    
+                }
+                return '../styles/images/pendingicon.png';                    
             },
             User: function () {
 

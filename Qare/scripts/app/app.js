@@ -65,12 +65,20 @@ var app = (function (win) {
         
         //START -- to enable PushPlugin
         var everliveOptions = {
-                              apiKey: appSettings.everlive.apiKey,
-                              scheme: appSettings.everlive.scheme
+                               apiKey: appSettings.everlive.apiKey,
+                               scheme: appSettings.everlive.scheme,
+                               authentication: {
+                                  persist: true,
+                                  onAuthenticationRequired: function() {
+                                        alert('Your access token has expired. Please log in.');
+                                        app.mobileApp.navigate('index.html');
+                                        // Redirect to log-in page
+                                  }
+                               }
                           };
         
          // Initialize Everlive SDK
-    	var el = new Everlive(everliveOptions);
+   	var el = new Everlive(everliveOptions);
         //TODO check this (Tijana)
        var devicePushSettings = {
                 iOS: {
@@ -82,7 +90,7 @@ var app = (function (win) {
                     projectNumber: 'YOUR_GOOGLE_API_PROJECT_NUMBER'
                 },
                 wp8: {
-                    channelName: 'tijana'//'EverlivePushChannel'
+                    channelName: 'qare'//'EverlivePushChannel'
                 },
                 notificationCallbackIOS: onPushNotificationReceived,
                 notificationCallbackAndroid: onPushNotificationReceived,
@@ -90,7 +98,7 @@ var app = (function (win) {
             };
         
         el.push.register(devicePushSettings, function() {
-                alert("Successful registration in Backend Services. You are ready to receive push notifications.");
+                //alert("Successful registration in Backend Services. You are ready to receive push notifications.");
             }, function(err) {
                 alert("Error: " + err.message);
             });   
@@ -124,7 +132,15 @@ var app = (function (win) {
 
     var everliveOptions = {
                               apiKey: appSettings.everlive.apiKey,
-                              scheme: appSettings.everlive.scheme
+                              scheme: appSettings.everlive.scheme,
+                              authentication: {
+                                  persist: true,
+                                  onAuthenticationRequired: function() {
+                                        alert('Your access token has expired. Please log in.');
+                                        app.mobileApp.navigate('index.html');
+                                        // Redirect to log-in page
+                                  }
+                              }
                           };
 
     if(appSettings.everlive.url){

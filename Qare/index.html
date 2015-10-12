@@ -4,12 +4,9 @@
         <title></title>
         <meta charset="utf-8" />
         <script src="cordova.js"></script>
-        <script src="https://bs-static.cdn.telerik.com/1.5.6/everlive.all.min.js"></script>
-        <!--<script src="bower_components/everlive/min/everlive.all.min.js"></script>-->
         <script src="kendo/js/jquery.min.js"></script>
         <script src="kendo/js/kendo.mobile.min.js"></script>
-        <script src="kendo/js/kendo.culture.nl-NL.min.js"></script>
-        
+        <script src="bower_components/everlive/min/everlive.all.min.js"></script>
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
  
         <script src="scripts/app/identity-provider.js"></script>
@@ -25,7 +22,6 @@
         <script src="scripts/app/signup.js"></script>       
         
         <script src="scripts/app/activities.js"></script>
-        <script src="scripts/app/my-activity.js"></script>
         <script src="scripts/app/activity.js"></script>
         <script src="scripts/app/favorites.js"></script>
         <script src="scripts/app/comments.js"></script>
@@ -59,7 +55,7 @@
         </div>
         <!--WELCOME VIEW -->
         <div data-role="view" id="welcome" data-layout="default" class="welcome-scrn form-view" data-model="app.Login" data-init="app.Login.init" data-show="app.Login.show">
-            <div data-role="header"></div>
+            <div data-role="header" style="min-height:0px"></div>
             <a data-role="button" href="views/providerSignupView.html" class="qare-span-provider-login">Aanbieder aanmelden ></a>
             <div class="qare-span-provider-logo"><h2 class="app-name">QARE</h2></div>
             <div data-role="modalview" id="login-modal" style="width: 95%;">
@@ -112,8 +108,7 @@
                     	<a data-role="button" class="qare-btn-facebook">Facebook</a>
                     </span>
                 </li>-->
-                
-                 <a data-role="button" href="views/introductionView.html" class="qare-span-provider-login bottom">Hoe werkt het?</a>
+                 <a data-role="button" href="views/introductionView.html" class="qare-span-provider-login">Algemene voorwarden ></a>
                 <!--<li class="oauth cf">
                     <span id="loginWithFacebook" class="oauth-item" data-role="touch" data-bind="events: { tap: loginWithFacebook }">
                         <a data-role="button" class="btn btn-facebook hide-text">Facebook</a>

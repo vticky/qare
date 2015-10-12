@@ -80,19 +80,75 @@
 /*.filter-button:after, .filter-button:before {
     content:"\e078";
 }*/
+
+.menu-active > .km-organize:after, .menu-active > .km-organize:before{
+    content: "";
+    background-image: url('images/aanbodiconsmallhover.png');
+    width:32px;
+    height: 32px;
+    background-repeat:no-repeat;    
+}
+
+
 .km-organize:after, .km-organize:before {
-    content:"\e078";
+    content:"";
+    background-image: url('images/aanbodiconsmall.png');
+    width:32px;
+    height: 32px;
+    background-repeat:no-repeat;
+}
+
+.menu-active > .km-bookmarks:after, .menu-active > .km-bookmarks:before{
+    content: "";
+    background-image: url('images/boekingeniconsmallhover.png');
+    width:26px;
+    height: 35px;
+    background-repeat:no-repeat;    
 }
 
 .km-bookmarks:after, .km-bookmarks:before {
-  content: "\e07a";
+    content: "";
+    background-image: url('images/boekingeniconsmall.png');
+    width:26px;
+    height: 35px;
+    background-repeat:no-repeat;
 }
 .km-toprated:after, .km-favorites:after, .km-toprated:before, .km-favorites:before {
   content: "\e20c";
 }
-.km-contacts:after, .km-contacts:before {
-  content: "\e219";
+
+.menu-active > .km-contacts:after, .menu-active > .km-contacts:before {
+    content: "";
+    background-image: url('images/profieliconsmallhover.png');
+    width:32px;
+    height: 38px;
+    background-repeat:no-repeat;
 }
+
+.km-contacts:after, .km-contacts:before {
+    content: "";
+    background-image: url('images/profieliconsmall.png');
+    width:32px;
+    height: 38px;
+    background-repeat:no-repeat;
+}
+
+.km-compose:after, .km-compose:before {
+    content: "";
+    background-image: url('images/editiconsmall.png');
+    width:32px;
+    height: 43px;
+    background-repeat:no-repeat;
+}
+
+.km-globe:after, .km-globe:before {
+    content: "";
+    background-image: url('images/locationiconsmall.png');
+    width:24px;
+    height: 32px;
+    background-repeat:no-repeat;
+}
+
 .km-flat .km-loader {
   background-color: rgba(0, 0, 0, .75);
 }
@@ -323,15 +379,21 @@ input[type='week'] {
 /* App Header */
 
 #qareApp.km-flat.km-on-ios.km-black-translucent-status-bar .km-header {
-  min-height: 1px;
+  min-height: 56px;
   background-color: #32A1A9;
 }
 
 #qareApp.km-flat.km-on-ios.km-black-translucent-status-bar .km-header .km-navbar {
   margin-top: 0;
-  padding-top: 15px;
+  padding-top: 0.5em !important;
   background-color: #32A1A9;
   color:#fff;
+}
+
+.edit-button, .location-button
+{
+    padding:0px 10px 0px 0px !important;
+    margin:0px !important;
 }
 
 /*#qareApp.km-flat .km-header .km-navbar {
@@ -842,4 +904,30 @@ input[type='week'] {
 {
     color: #32A1A9;
     cursor: pointer;
+}
+
+.Aangevraagd
+{
+    background-repeat:no-repeat;
+    background-image: url('images/pendingiconsmall.png');  
+    float:right; 
+    margin-right: 20px;
+    width:40px;
+    height:40px;
+}
+
+.Bevestigd
+{
+    background-image: url('images/acceptediconsmall.png');  
+    background-repeat:no-repeat;
+    float:right; 
+    margin-right: 20px;
+    width:40px;
+    height:40px;
+}
+
+.km-footer
+{
+    position:relative;
+    bottom:0px;
 }

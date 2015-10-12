@@ -45,16 +45,15 @@ app.AddActivity = (function () {
             // Clear field on view show
             $newText.val('');
             $newDescription.val('');
-            $newCity.val('');
-            $newAddress.val('');
-            $newZip.val('');
+            $newCity.val(app.Users.currentUser.get('data').City);
+            $newAddress.val(app.Users.currentUser.get('data').Address);
+            $newZip.val(app.Users.currentUser.get('data').PostalCode);
             console.log($newDate.val());
-         //   $newDate.val(new Date());//todo: set todays date, fix picker
+            $newDate.val('10/10/2015');//new Date().toString());//todo: set todays date, fix picker
             $newStartTime.val('');
             $newEndTime.val('');
             $newSeats.val('');
             $newCategory.val(''); 
-            
             validator.hideMessages();
             $newDescription.prop('rows', 5);
             
@@ -72,23 +71,25 @@ app.AddActivity = (function () {
             // Validating of the required fields
             if (validator.validate()) {
                 // Adding new activity to Activities model
-                var activity = app.Activities.activities.add();
+                var activities = app.Activities.activities;
+                var activity = activities.add();
                 
                 activity.Text = $newText.val();
                 activity.Description = $newDescription.val();
                 activity.City = $newCity.val();
                 activity.Address = $newAddress.val();
                 activity.PostalCode = $newZip.val();
+                activity.Id = 0;
                 console.log($newDate.val());
-                activity.ActivityDate = $newDate.val();
+                //activity.ActivityDate = $newDate.val();
                 
-                var dateObj = new Date(activity.ActivityDate);
+                var dateObj = new Date($newDate.val());
                 var day = dateObj.getDay();
                 var month = dateObj.getUTCMonth() + 1; //months from 1-12
 				var date = dateObj.getUTCDate();
 				var year = dateObj.getUTCFullYear();
                 activity.ActivityDate = new Date(year, month, date, $newStartTime.val(), 0, 0, 0);
-                
+                console.log(activity.ActivityDate);
                 if(day == 1)
                 activity.DayInWeek = "monday";
                 else if(day == 2)
@@ -113,16 +114,16 @@ app.AddActivity = (function () {
 
                 activity.UserId = app.Users.currentUser.get('data').Id;
                 
-                var activityProvider = app.everlive.data('Activities');
-                var activities = app.Activities.activities;
-
-                activities.one('sync', function () {
-                    app.showAlert("Activiteit is aangemaakt.");
-                    // app.Activities();
-                    //app.mobileApp.navigate('#:back');
-                    app.mobileApp.navigate('views/myActivitiesView.html');
-                });
+                //var activityProvider = app.everlive.data('Activities');
                 
+                console.log("pre sync");
+                activities.one('sync', function () {
+                   app.showAlert("Activiteit is aangemaakt.");
+                    // app.Activities();
+                   // app.mobileApp.navigate('#:back');
+                app.mobileApp.navigate('views/myActivitiesView.html');
+                });
+                 console.log("posle sync");
                 activities.sync();
                 //app.Activities.activities.refresh();
             }

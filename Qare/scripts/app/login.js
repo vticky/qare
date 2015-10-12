@@ -61,10 +61,25 @@ app.Login = (function () {
             var username = $loginUsername.val();
             var password = $loginPassword.val();
 
+            
             app.mobileApp.showLoading();
-
+            
+            //var everlive = new Everlive({
+            //apiKey: appSettings.everlive.apiKey,
+            //scheme: appSettings.everlive.scheme,
+            //authentication: {
+            //        persist: true,
+            //        onAuthenticationRequired: function() {
+            //            alert('Your access token has expired. Please log in.');
+            //            app.mobileApp.navigate('index.html');
+            //            // Redirect to log-in page
+            //        }
+            //    }
+            //});
+            
             // Authenticate using the username and password
             app.everlive.Users.login(username, password)
+            //everlive.Users.login(username, password)
             .then(function () {
                 // EQATEC analytics monitor - track login type
                 if (isAnalytics) {
