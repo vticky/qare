@@ -109,10 +109,7 @@ app.Activity = (function () {
             activity,
             $activityPicture;
         
-         // Navigate to profilePersonView When some activity is selected
-        var profileSelected = function (e) {
-            app.mobileApp.navigate('views/profilePersonView.html?uid=' + e.data.uid);
-        };
+       
         
     
         var init = function () {
@@ -409,6 +406,13 @@ app.Activity = (function () {
             function (error) {
                 //app.alert(JSON.stringify(error));
             });
+        };
+        
+          // Navigate to profilePersonView When some activity is selected
+        var profileSelected = function () {
+            var userId = $("#user-id").val();
+            alert(userId);
+            app.mobileApp.navigate('views/profilePersonView.html?uid=' + userId);
         };
         
         var acceptActivity = function () {

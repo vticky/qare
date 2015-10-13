@@ -1,4 +1,6 @@
-<div data-role="view" data-title="Profile person" data-layout="main-nonav" data-model="app.profilePersonView" data-show="app.profilePersonView.onShow">
+<div data-role="view" data-title="Profile person" data-layout="default"  class="activities-view" data-model="app.profilePersonView"
+    data-show="app.profilePersonView.onShow" data-after-show="app.profilePersonView.dataLoaded">
+    
     <header data-role="header">
         <div data-role="navbar">Profiel
             <a class="nav-button nav-button-icon nav-button-qare" data-align="left" data-role="button" data-bind="events: { click: profilePersonViewModel.home }"></a>

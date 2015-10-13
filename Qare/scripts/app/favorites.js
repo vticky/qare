@@ -196,6 +196,16 @@ app.Activities = (function () {
     // Activities view model
     var activitiesViewModel = (function () {
 
+        // Navigate to profilePersonView When some activity is selected
+        var profileSelected = function (e) {
+            
+            var userId = $("#user-id").val();
+            alert(userId);
+            //app.mobileApp.navigate('views/profilePersonView.html?uid=' + userId);
+        };
+    
+    
+        
         // Navigate to activityView When some activity is selected
         var activitySelected = function (e) {
 
@@ -262,7 +272,8 @@ app.Activities = (function () {
             logout: logout,
             filterDialog: filterDialog,
             activateFilter: activateFilter,
-            mapDialog: mapDialog
+            mapDialog: mapDialog,
+            profileSelected:profileSelected
             
         };
 

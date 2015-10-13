@@ -32,6 +32,38 @@ app.profilePersonView = kendo.observable({
         $("#myProfileAge").text(app.Users.currentUser.data.Age);
         $("#myProfileCreated").text(today);
         
+    },
+
+    dataLoaded: function () {
+    
+     var currentUserType = app.Users.currentUser.data.UserType;
+		  
+        
+        if (currentUserType === "Vrijwilliger"){
+            $("#provider-activities").hide();
+            $("#provider-bookings").hide();
+            $("#volunteer-activities").show();    
+            $("#volunteer-bookings").show();
+            $("#volunteer-favorites").show();
+            
+            $("#provider-myprofile").show();
+        }
+        else if (currentUserType === "Aanbieder"){
+            $("#provider-activities").show();
+            $("#provider-bookings").show();
+            
+            //$("#provider-profiles").show();
+            $("#provider-myprofile").show();
+            $("#volunteer-activities").hide();
+            $("#volunteer-bookings").hide();
+            $("#volunteer-favorites").hide();
+        } 
+        else {
+            $("#volunteer-activities").show();
+            $("#volunteer-bookings").show();
+            $("#volunteer-favorites").show();
+            $("#provider-myprofile").show();
+        }       
     }
 });
 (function(parent) {

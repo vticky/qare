@@ -64,18 +64,18 @@ app.Login = (function () {
             
             app.mobileApp.showLoading();
             
-            //var everlive = new Everlive({
-            //apiKey: appSettings.everlive.apiKey,
-            //scheme: appSettings.everlive.scheme,
-            //authentication: {
-            //        persist: true,
-            //        onAuthenticationRequired: function() {
-            //            alert('Your access token has expired. Please log in.');
-            //            app.mobileApp.navigate('index.html');
-            //            // Redirect to log-in page
-            //        }
-            //    }
-            //});
+            app.everlive = new Everlive({
+            apiKey: appSettings.everlive.apiKey,
+            scheme: appSettings.everlive.scheme,
+            authentication: {
+                    persist: true,
+                    onAuthenticationRequired: function() {
+                        alert('Your access token has expired. Please log in.');
+                        app.mobileApp.navigate('index.html');
+                        // Redirect to log-in page
+                    }
+                }
+            });
             
             // Authenticate using the username and password
             app.everlive.Users.login(username, password)
@@ -90,20 +90,12 @@ app.Login = (function () {
                 return app.Users.load();
             })
             .then(function () {
-                
                 var currentUserType = app.Users.currentUser.data.UserType;
-                
                 if (currentUserType === "Vrijwilliger"){
-
 					app.mobileApp.navigate('views/activitiesView.html');
-
                 } if (currentUserType === "Aanbieder"){
-                    
                     app.mobileApp.navigate('views/myActivitiesView.html');
-
                 }
-
-                
             })
             .then(null,
                   function (err) {
@@ -111,6 +103,18 @@ app.Login = (function () {
                       app.showError(err.message);
                   }
             );
+            
+        
+         // Initialize Everlive SDK
+   
+        
+       // app.everlive.Users.currentUser()
+       // .then(function (data) {
+       //     alert(JSON.stringify(data));
+        //},
+        //function(error){
+        //    alert(JSON.stringify(error));
+        //});
         };
 
         // Authenticate using Facebook credentials

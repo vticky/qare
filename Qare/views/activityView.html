@@ -8,18 +8,24 @@
             <a class="nav-button location-button" data-align="right" data-role="button" data-icon="globe" onclick="window.location.replace('#views/kendoMapView.html?city=' + app.Activity.activity().City + '&address=' + app.Activity.activity().Address);"></a>
         </div>
     </div>
+    <input id="activity-id" type="hidden" data-bind="value: Id"></>
+    <input id="activity-createdby" type="hidden" data-bind="value: CreatedBy"></>
+    <input id="activity-status" type="hidden" data-bind="value: Status"></>
+    <input id="activity-category-span" type="hidden" data-bind="value: Category"></>
+    <input id="user-id" type="hidden" data-bind="value: UserId"></>
     <div id="activity-main-container" class="activity-main-container">
         <div class="activity-wrapper">
             <div class="activity-left">
 
-                <a class="activity-category-border activity-category-border-#: Category #">
-                    <div class="activity-profilepicture">
+                <a class="activity-category-border activity-category-border-#: Category #" 
+                    onclick="window.location.replace('#views/profilePersonView.html?uid' + app.Activity.activity().UserId);">
+                    <div data-role="touch"  class="activity-profilepicture">
                         <img data-bind="attr:{src: User().PictureUrl}" alt="#: User().DisplayName #">
                     </div>
 
                     <span data-role="touch">
                         <a class="activity-profilename">
-                            <div data-role="touch" data-bind="events: { tap: profileSelected }" class="cf">
+                            <div data-role="touch" data-bind="events: { tap: activitySelected }" class="cf">
                                 <span data-bind="text: User().DisplayName" > </span> >
                             </div>
                         </a>
@@ -204,10 +210,7 @@
         </div>
     </footer>
         
-    <input id="activity-id" type="hidden" data-bind="value: Id"></>
-    <input id="activity-createdby" type="hidden" data-bind="value: CreatedBy"></>
-    <input id="activity-status" type="hidden" data-bind="value: Status"></>
-    <input id="activity-category-span" type="hidden" data-bind="value: Category"></>
+    
     
 </div>
 <!-- Activities ListView Template -->

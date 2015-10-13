@@ -61,8 +61,9 @@ var app = (function (win) {
     };
 
     var onDeviceReady = function() {
-        
-        
+
+         
+      
         //START -- to enable PushPlugin
         var everliveOptions = {
                                apiKey: appSettings.everlive.apiKey,
@@ -71,14 +72,22 @@ var app = (function (win) {
                                   persist: true,
                                   onAuthenticationRequired: function() {
                                         alert('Your access token has expired. Please log in.');
-                                        app.mobileApp.navigate('index.html');
+                                        app.mobileApp.navigate('#welcome');
                                         // Redirect to log-in page
                                   }
                                }
                           };
         
          // Initialize Everlive SDK
-   	var el = new Everlive(everliveOptions);
+   
+   
+        //el.Users.currentUser()
+        //    .then(function (data) {
+        //        alert(JSON.stringify(data));
+        //    },
+        //    function(error){
+        //        alert(JSON.stringify(error));
+        //    });
         //TODO check this (Tijana)
        var devicePushSettings = {
                 iOS: {

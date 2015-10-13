@@ -16,7 +16,7 @@
     </div>
 </div>
 <script>
-    var activity;
+    
     var geocoder;
     var map;
     var address;
@@ -24,14 +24,9 @@
     var addressParam;
     
     function showMap(e) {
-       // activityUid = e.view.params.uid;
         addressParam = e.view.params.address;
         cityParam = e.view.params.city;
-        console.log(cityParam + ',' + addressParam);
-        // Get current activity (based on item uid) from Activities model
-        //activity = app.Activities.activities.getByUid(activityUid);
-        //kendo.bind(e.view.element, activity, kendo.mobile.ui);
-        //console.log(activity);
+    
         navigator.geolocation.getCurrentPosition(
             onSuccessShowMap,
             onErrorShowMap
@@ -41,16 +36,11 @@
         var latlng;
     
         geocoder = new google.maps.Geocoder();
-        if (activity === undefined) {
-            latlng = new google.maps.LatLng(
-                position.coords.latitude,
-                position.coords.longitude);
-            address = cityParam + ',' + addressParam;
-        } else {
-            latlng = new google.maps.LatLng(
-                activity.Location.latitude,
-                activity.Location.longitude);
-        }
+        
+        latlng = new google.maps.LatLng(
+            position.coords.latitude,
+            position.coords.longitude);
+        address = cityParam + ',' + addressParam;
     
         var mapOptions = {
     
